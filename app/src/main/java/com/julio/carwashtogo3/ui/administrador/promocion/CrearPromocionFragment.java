@@ -1,6 +1,7 @@
 package com.julio.carwashtogo3.ui.administrador.promocion;
 
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.julio.carwashtogo3.R;
 import com.julio.carwashtogo3.common.Constantes;
+import com.julio.carwashtogo3.model.Promocion;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +37,9 @@ public class CrearPromocionFragment extends Fragment {
     private StorageReference storageReference;
 
     public static int REQUEST_GALERIA3 = 13;
+
+    private Promocion promocion = new Promocion();
+
 
     public CrearPromocionFragment() {
         // Required empty public constructor
@@ -62,8 +69,50 @@ public class CrearPromocionFragment extends Fragment {
         btnSubirImagenPromo = view.findViewById(R.id.btnSubirImagenPromo);
         btnCrearPromo = view.findViewById(R.id.btnCrearPromo);
 
+        btnCrearPromo.setEnabled(false);
 
+        btnSubirImagenPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrigaleria = new Intent();
+                abrigaleria.setType("image/*");
+                abrigaleria.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(abrigaleria,"selecciona una imagen"),REQUEST_GALERIA3);
+            }
+        });
+        btnCrearPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nombre = edtNombrePromo.getText().toString();
+                double precio = Double.valueOf(edtPrecio.getText().toString().trim());
+                String fechainicio = edtFechaInicio.getText().toString().trim();
+                String fechaFinal = edtFechaFin.getText().toString().trim();
+                String descripcionPromo = edtDescripcionPromo.getText().toString();
+
+                promocion.setNombre(nombre);
+                promocion.setPrecio(precio);
+                promocion.setFechaIncio(fechainicio);
+                promocion.setFechaFinal(fechaFinal);
+                promocion.setDescripcionPromo(descripcionPromo);
+
+                crearPromocion(promocion);
+            }
+        });
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_GALERIA3){
+            if (resultCode == RESULT_OK){
+                urlImagenSeleccionada = data.getData();
+                btnCrearPromo.setEnabled(true);
+            }
+        }
+    }
+    private void crearPromocion(Promocion promocion){
+        
     }
 
 }

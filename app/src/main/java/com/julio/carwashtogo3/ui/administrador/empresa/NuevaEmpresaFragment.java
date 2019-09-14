@@ -119,6 +119,7 @@ public class NuevaEmpresaFragment extends Fragment {
                 empresa.setUbicacion(ubicacion);
                 empresa.setNivel(nivel);
                 empresa.setTelefono(telefono);
+                crearEmpresa();
             }
         });
 
@@ -145,7 +146,7 @@ public class NuevaEmpresaFragment extends Fragment {
                 assert data != null;
                 imagenSeleccionada = data.getData();
                 btnGuardar.setEnabled(true);
-                crearEmpresa();
+                //crearEmpresa();
             }
         }
     }
