@@ -3,6 +3,16 @@ package com.julio.carwashtogo3.model;
 import java.util.List;
 
 public class Promocion {
+    private String UId;
+
+    public String getUId() {
+        return UId;
+    }
+
+    public void setUId(String UId) {
+        this.UId = UId;
+    }
+
     private String nombre;
     private double precio;
     private String fechaIncio;

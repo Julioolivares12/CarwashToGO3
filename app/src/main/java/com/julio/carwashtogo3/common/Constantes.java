@@ -6,7 +6,7 @@ public class Constantes {
     public static String REF_USUARIOS="usuarios";
     public static String REF_PROMOCIONES="promociones";
     public static String LOGOS_EMPRESAS="logos_empresas";
-
+    public static String IMAGENES_POMOCIONES="imagenes-promociones";
 
     public static String NOMBRE_EMPRESA="nombre_empresa";
     public static String ENCARGADO_ENPRESA="encargado_empresa";

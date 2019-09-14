@@ -1,21 +1,27 @@
 package com.julio.carwashtogo3.ui.administrador.promocion;
 
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.julio.carwashtogo3.R;
 import com.julio.carwashtogo3.common.Constantes;
 import com.julio.carwashtogo3.model.Promocion;
@@ -112,7 +118,42 @@ public class CrearPromocionFragment extends Fragment {
         }
     }
     private void crearPromocion(Promocion promocion){
-        
+        String key =ref_promociones.push().getKey();
+        assert  key != null;
+        promocion.setUId(key);
+        ref_promociones.child(key).setValue(promocion);
+        subirFoto(key,urlImagenSeleccionada,promocion);
+    }
+
+    private void subirFoto(final String key, Uri urlImagenSeleccionada, final Promocion promocion) {
+        try{
+            final StorageReference storage = storageReference.child(Constantes.IMAGENES_POMOCIONES+key+"."+getFileExtension(urlImagenSeleccionada));
+            storage.putFile(urlImagenSeleccionada).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    storage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            promocion.setUrlImagen(uri.toString());
+                            ref_promociones.child(key).setValue(promocion);
+                            View view = getView();
+                            assert view != null;
+                            Snackbar.make(view,"promocion creada",Snackbar.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private String getFileExtension(Uri urlImagenSeleccionada) {
+        FragmentActivity activity = getActivity();
+        assert activity != null;
+        ContentResolver cR = activity.getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(urlImagenSeleccionada));
     }
 
 }
