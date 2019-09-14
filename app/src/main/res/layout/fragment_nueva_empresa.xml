@@ -3,12 +3,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.administrador.empresa.NuevaEmpresaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fillViewport="true">
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <Button
+                android:id="@+id/btnActualizarEmpresalogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/colorNegroBotones"
+                android:text="subir logo"
+
+                android:textColor="@android:color/white"
+
+                app:layout_constraintEnd_toStartOf="@+id/btnActualizarEmpresa"
+                app:layout_constraintStart_toStartOf="@+id/spnNivelActualizar"
+                app:layout_constraintTop_toBottomOf="@+id/spnNivelActualizar" />
+
+            <Button
+                android:id="@+id/btnActualizarEmpresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:backgroundTint="@color/colorNegroBotones"
+                android:text="guardar"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spnNivelActualizar" />
+
+            <EditText
+                android:id="@+id/edtUbicacionActualizar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:hint="@string/ubicacion"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/edtEncargadoActualizar"
+                app:layout_constraintStart_toStartOf="@+id/edtEncargadoActualizar"
+                app:layout_constraintTop_toBottomOf="@+id/edtEncargadoActualizar" />
+
+            <EditText
+                android:id="@+id/edtTelefonoActualizar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:hint="@string/telefono"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="@+id/edtUbicacionActualizar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtUbicacionActualizar" />
+
+            <EditText
+                android:id="@+id/edtNombreEmpresaActualizar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:hint="@string/nombre_de_empresa"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/edtEncargadoActualizar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:hint="@string/encargado"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/edtNombreEmpresaActualizar"
+                app:layout_constraintStart_toStartOf="@+id/edtNombreEmpresaActualizar"
+                app:layout_constraintTop_toBottomOf="@+id/edtNombreEmpresaActualizar" />
+
+            <Spinner
+                android:id="@+id/spnNivelActualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView5"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/seleccionar_nivel"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/edtTelefonoActualizar"
+                app:layout_constraintTop_toBottomOf="@+id/edtTelefonoActualizar" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/nueva_empresa"
+                android:textSize="20sp"
+                app:fontFamily="sans-serif-black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
 </FrameLayout>

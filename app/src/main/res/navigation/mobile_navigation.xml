@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/navigation_listar_empresas"
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.ListarEmpresaFragment"
-        android:label="fragment_listar_empresa"
+        android:label="lista empresa"
         tools:layout="@layout/fragment_listar_empresa" >
         <action
             android:id="@+id/action_listarEmpresaFragment_to_editarEmpresaFragment"
@@ -54,39 +54,39 @@
     <fragment
         android:id="@+id/navigation_lista_encargados"
         android:name="com.julio.carwashtogo3.ui.administrador.encargado.ListarEncargadoFragment"
-        android:label="fragment_listar_encargado"
+        android:label="lista encargado"
         tools:layout="@layout/fragment_listar_encargado" />
     <fragment
         android:id="@+id/navigation_agregar_promociones"
         android:name="com.julio.carwashtogo3.ui.administrador.promocion.CrearPromocionFragment"
-        android:label="fragment_crear_promocion"
+        android:label="crear promocion"
         tools:layout="@layout/fragment_crear_promocion" />
     <fragment
         android:id="@+id/editarEmpresaFragment"
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.EditarEmpresaFragment"
-        android:label="fragment_editar_empresa"
+        android:label="editar empresa"
         tools:layout="@layout/fragment_editar_empresa" />
     <fragment
         android:id="@+id/navigation_nuevo_encargado"
         android:name="com.julio.carwashtogo3.ui.administrador.encargado.NuevoEncargadoFragment"
-        android:label="fragment_nuevo_encargado"
+        android:label="nuevo encargado"
         tools:layout="@layout/fragment_nuevo_encargado" />
     <fragment
         android:id="@+id/navigation_crear_empresas"
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.NuevaEmpresaFragment"
-        android:label="fragment_nueva_empresa"
+        android:label="nueva empresa"
         tools:layout="@layout/fragment_nueva_empresa" />
     <!--fin administrador-->
     <fragment
         android:id="@+id/navigation_perfil"
         android:name="com.julio.carwashtogo3.ui.PerfilFragment"
-        android:label="fragment_perfil"
+        android:label="perfil"
         tools:layout="@layout/fragment_perfil" />
     <!--cliente-->
     <fragment
         android:id="@+id/navigation_catalogo_productos"
         android:name="com.julio.carwashtogo3.ui.cliente.catalogo.CatalogoDeProductosFragment"
-        android:label="fragment_catalogo_de_productos"
+        android:label="catalogo de productos"
         tools:layout="@layout/fragment_catalogo_de_productos" >
         <action
             android:id="@+id/action_catalogoDeProductosFragment_to_detalleProductoFragment"
@@ -95,12 +95,12 @@
     <fragment
         android:id="@+id/navigation_add_vehiculo"
         android:name="com.julio.carwashtogo3.ui.cliente.vehiculo.AddVehiculoFragment"
-        android:label="fragment_add_vehiculo"
+        android:label="agregar vehiculo"
         tools:layout="@layout/fragment_add_vehiculo" />
     <fragment
         android:id="@+id/navigation_cuponera"
         android:name="com.julio.carwashtogo3.ui.cliente.cupon.CuponeraFragment"
-        android:label="fragment_cuponera"
+        android:label="cuponera"
         tools:layout="@layout/fragment_cuponera" >
         <action
             android:id="@+id/action_cuponeraFragment_to_detalleCuponFragment"
@@ -109,12 +109,12 @@
     <fragment
         android:id="@+id/detalleCuponFragment"
         android:name="com.julio.carwashtogo3.ui.cliente.cupon.DetalleCuponFragment"
-        android:label="fragment_detalle_cupon"
+        android:label="detalle cupon"
         tools:layout="@layout/fragment_detalle_cupon" />
     <fragment
         android:id="@+id/detalleProductoFragment"
         android:name="com.julio.carwashtogo3.ui.cliente.catalogo.DetalleProductoFragment"
-        android:label="fragment_detalle_producto"
+        android:label="detalle producto"
         tools:layout="@layout/fragment_detalle_producto" />
     <!--fin cliente-->
 </navigation>
