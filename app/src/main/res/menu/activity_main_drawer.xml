@@ -5,6 +5,32 @@
 
     <group android:checkableBehavior="single">
 
+        <item android:title="@string/listarEmpresas"
+            android:id="@+id/navigation_listar_empresas"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
+        <item android:title="@string/nueva_empresa"
+            android:id="@+id/navigation_crear_empresas"
+            android:icon="@drawable/ic_add_box_black_24dp"/>
+        <item android:title="@string/crear_promocion"
+            android:id="@+id/navigation_agregar_promociones"
+            android:icon="@drawable/ic_add_black_24dp"/>
+        <item android:title="@string/agregar_encargado"
+            android:id="@+id/navigation_nuevo_encargado"
+            android:icon="@drawable/ic_person_add_black_24dp"/>
+        <item android:title="@string/listar_encargados"
+            android:id="@+id/navigation_lista_encargados"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
+
+
+        <item android:title="@string/cuponera"
+            android:id="@+id/navigation_cuponera"/>
+        <item android:title="@string/add_vehiculo"
+            android:id="@+id/navigation_add_vehiculo"/>
+        <item android:title="@string/catalogo_de_productos"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+            android:id="@+id/navigation_catalogo_productos"/>
+        <item android:title="@string/perfil"
+            android:id="@+id/navigation_perfil" />
       <!--  <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
