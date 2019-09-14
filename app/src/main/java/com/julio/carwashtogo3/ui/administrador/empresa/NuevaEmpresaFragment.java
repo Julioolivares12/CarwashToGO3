@@ -48,7 +48,7 @@ public class NuevaEmpresaFragment extends Fragment {
     //firebase
     //----------------------------------------
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference refEmpresas = database.getReference("empresas");
+    DatabaseReference refEmpresas = database.getReference(Constantes.REF_EMPRESA);
     private StorageReference storageReference;
     //-----------------------------------------
     private String nivel;

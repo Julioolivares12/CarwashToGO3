@@ -3,12 +3,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.administrador.promocion.CrearPromocionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnSubirImagenPromo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:text="subir imagen"
+                app:layout_constraintStart_toStartOf="@+id/edtDescripcionPromo"
+                app:layout_constraintTop_toBottomOf="@+id/edtDescripcionPromo" />
+
+            <Button
+                android:id="@+id/btnCrearPromo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:text="@string/crear_promocion"
+                app:layout_constraintEnd_toEndOf="@+id/edtDescripcionPromo"
+                app:layout_constraintStart_toEndOf="@+id/btnSubirImagenPromo"
+                app:layout_constraintTop_toTopOf="@+id/btnSubirImagenPromo" />
+
+            <CheckBox
+                android:id="@+id/chAceite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Aceite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintVertical_bias="0.077" />
+
+            <CheckBox
+                android:id="@+id/chRinso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rinso"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintHorizontal_bias="0.652"
+                app:layout_constraintStart_toEndOf="@+id/chAceite"
+                app:layout_constraintTop_toTopOf="@+id/chAceite" />
+
+            <CheckBox
+                android:id="@+id/chAspirado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Aspirado"
+                app:layout_constraintStart_toStartOf="@+id/chAceite"
+                app:layout_constraintTop_toBottomOf="@+id/chAceite" />
+
+            <CheckBox
+                android:id="@+id/chAmbientador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ambientador"
+                app:layout_constraintEnd_toEndOf="@+id/chRinso"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/chAspirado"
+                app:layout_constraintTop_toTopOf="@+id/chAspirado" />
+
+            <CheckBox
+                android:id="@+id/chEspuma"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Espuma"
+                app:layout_constraintStart_toStartOf="@+id/chAspirado"
+                app:layout_constraintTop_toBottomOf="@+id/chAspirado" />
+
+            <CheckBox
+                android:id="@+id/chCera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="106dp"
+                android:layout_marginLeft="106dp"
+                android:text="Cera"
+                app:layout_constraintEnd_toEndOf="@+id/chAmbientador"
+                app:layout_constraintStart_toEndOf="@+id/chEspuma"
+                app:layout_constraintTop_toTopOf="@+id/chEspuma" />
+
+            <EditText
+                android:id="@+id/edtFechaFin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="fecha fin"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="@+id/edtFechaInicio"
+                app:layout_constraintStart_toStartOf="@+id/edtFechaInicio"
+                app:layout_constraintTop_toBottomOf="@+id/edtFechaInicio" />
+
+            <EditText
+                android:id="@+id/edtNombrePromocion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Nombre de la promocion"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <EditText
+                android:id="@+id/edtPrecio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="precio"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/edtNombrePromocion"
+                app:layout_constraintStart_toStartOf="@+id/edtNombrePromocion"
+                app:layout_constraintTop_toBottomOf="@+id/edtNombrePromocion" />
+
+            <EditText
+                android:id="@+id/edtFechaInicio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="fecna inicio"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="@+id/edtPrecio"
+                app:layout_constraintStart_toStartOf="@+id/edtPrecio"
+                app:layout_constraintTop_toBottomOf="@+id/edtPrecio" />
+
+            <EditText
+                android:id="@+id/edtDescripcionPromo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="descripcion de la promocion"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/chEspuma" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/incluye"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/edtFechaFin"
+                app:layout_constraintStart_toStartOf="@+id/edtFechaFin"
+                app:layout_constraintTop_toBottomOf="@+id/edtFechaFin" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/nueva_promocion"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                app:fontFamily="sans-serif-black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </FrameLayout>
