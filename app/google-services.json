@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "988423063270",
+    "firebase_url": "https://carwashtogo-454b2.firebaseio.com",
+    "project_id": "carwashtogo-454b2",
+    "storage_bucket": "carwashtogo-454b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988423063270:android:8ea8df0b2acf5fd6",
+        "android_client_info": {
+          "package_name": "com.julio.carwashtogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988423063270-6g4jhimvue5953mdprsh40986jjbdap2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.julio.carwashtogo",
+            "certificate_hash": "de9bce130f5e8b6d52e467e11d5a023cde00fb56"
+          }
+        },
+        {
+          "client_id": "988423063270-dim962dbjmn29i6g2t1625savujb28or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFdBienztLl_yzT8IEzWdfaJ03aF9yKaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988423063270-dim962dbjmn29i6g2t1625savujb28or.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988423063270:android:6eac327fe65d519ba51d27",
+        "android_client_info": {
+          "package_name": "com.julio.carwashtogo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988423063270-vqm2jrhjl5oese4iejesc2frsmfk1uo8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.julio.carwashtogo2",
+            "certificate_hash": "de9bce130f5e8b6d52e467e11d5a023cde00fb56"
+          }
+        },
+        {
+          "client_id": "988423063270-dim962dbjmn29i6g2t1625savujb28or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFdBienztLl_yzT8IEzWdfaJ03aF9yKaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988423063270-dim962dbjmn29i6g2t1625savujb28or.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988423063270:android:24c06afec6b82438a51d27",
+        "android_client_info": {
+          "package_name": "com.julio.carwashtogo3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988423063270-cde9c4737t5qf804k2q3bm7t9v5kg0g8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.julio.carwashtogo3",
+            "certificate_hash": "de9bce130f5e8b6d52e467e11d5a023cde00fb56"
+          }
+        },
+        {
+          "client_id": "988423063270-dim962dbjmn29i6g2t1625savujb28or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFdBienztLl_yzT8IEzWdfaJ03aF9yKaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988423063270-dim962dbjmn29i6g2t1625savujb28or.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

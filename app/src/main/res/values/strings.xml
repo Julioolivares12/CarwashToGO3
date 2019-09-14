@@ -1,0 +1,60 @@
+<resources>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+
+    <string name="app_name">CarwashToGO</string>
+    <string name="login">login</string>
+    <string name="creat_cuenta">crear cuenta</string>
+    <string name="correo">correo</string>
+    <string name="password">contraseña</string>
+    <string name="loginButton">Login</string>
+    <string name="or">o</string>
+    <string name="google">google</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="abrir_galeria">Abrir galeria</string>
+
+    <string name="cargo_en_la_empresa">cargo en la empresa</string>
+    <string name="fecha_nacimiento">fecha nacimiento</string>
+    <string name="dui">DUI</string>
+    <string name="codigo_empleado">codigo empleado</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+
+
+    <string name="listarEmpresas">listar empresas</string>
+    <string name="nueva_empresa">nueva empresa</string>
+    <string name="crear_promosion">crear promosion</string>
+    <string name="agregar_encargado">agregar encargado</string>
+    <string name="listar_encargados">listar encargados</string>
+    <string name="communicate">Communicate</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="crear_promocion">crear promocion</string>
+    <string name="cuponera">cuponera</string>
+    <string name="add_vehiculo">add vehiculo</string>
+    <string name="catalogo_de_productos">catalogo de productos</string>
+    <string name="nombre_de_empresa">Nombre de empresa</string>
+    <string name="encargado">Encargado</string>
+    <string name="ubicacion">ubicacion</string>
+    <string name="telefono">telefono</string>
+    <string name="seleccionar_nivel">Seleccionar nivel</string>
+    <string name="imagen_para_empresas">imagen para empresas</string>
+    <string name="registrar">registrar</string>
+    <string name="perfil">perfil</string>
+    <string name="title_activity_menu">MenuActivity</string>
+</resources>
