@@ -6,11 +6,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.administrador.empresa.ListarPromociones">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rb_promociones_list"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_empresa"
-        app:layoutManager="android.support.v7.widget.GridLayoutManager"
-       />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rb_promociones_list"
+            android:layout_width="418dp"
+            android:layout_height="628dp"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_empresa" />
+
+        <TextView
+            android:id="@+id/tvTituloPromoLista"
+            android:layout_width="296dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Promociones"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFiltroPromo"
+            android:layout_width="92dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="32dp"
+            android:text="Filtrar Por"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTituloPromoLista" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tvPort"
+            android:layout_width="220dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="28dp"
+            android:hint="TODO"
+            app:layout_constraintBottom_toTopOf="@+id/rb_promociones_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.095"
+            app:layout_constraintStart_toEndOf="@+id/tvFiltroPromo"
+            app:layout_constraintTop_toBottomOf="@+id/tvTituloPromoLista"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
 </FrameLayout>
