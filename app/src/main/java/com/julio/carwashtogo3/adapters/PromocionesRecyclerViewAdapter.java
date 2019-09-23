@@ -31,7 +31,12 @@ public class PromocionesRecyclerViewAdapter extends RecyclerView.Adapter<Promoci
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        Promocion promocion = promocions.get(i);
+        viewHolder.txtTitulo.setText(promocion.getNombre());
+        viewHolder.txtCreado.setText(promocion.getEncargado());
+        viewHolder.txtFechaI.setText(promocion.getFechaIncio());
+        viewHolder.txtFechaF.setText(promocion.getFechaFinal());
+        viewHolder.txtPrecio.setText(promocion.getPrecio());
     }
 
     @Override
