@@ -37,6 +37,7 @@ public class PromocionesRecyclerViewAdapter extends RecyclerView.Adapter<Promoci
         viewHolder.txtFechaI.setText(promocion.getFechaIncio());
         viewHolder.txtFechaF.setText(promocion.getFechaFinal());
         viewHolder.txtPrecio.setText(promocion.getPrecio());
+        viewHolder.imagenPromo.setImageResource(promocion.getImagenPromocion());
     }
 
     @Override

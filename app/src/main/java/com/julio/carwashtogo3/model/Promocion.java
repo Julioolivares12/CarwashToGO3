@@ -18,6 +18,7 @@ public class Promocion {
     private String precio;
     private String fechaIncio;
     private String fechaFinal;
+    private int imagenPromocion;
 
     private List<String> extras;
     private String descripcionPromo;
@@ -34,7 +35,7 @@ public class Promocion {
     public Promocion() {
     }
 
-    public Promocion(String nombre, String encargado, String precio, String fechaIncio, String fechaFinal, List<String> extras, String descripcionPromo, String urlImagen) {
+    public Promocion(String nombre, String encargado, String precio, String fechaIncio, String fechaFinal, List<String> extras, String descripcionPromo, String urlImagen, int imagenPromocion) {
         this.nombre = nombre;
         this.precio = precio;
         this.fechaIncio = fechaIncio;
@@ -43,6 +44,15 @@ public class Promocion {
         this.descripcionPromo = descripcionPromo;
         this.urlImagen = urlImagen;
         this.encargado = encargado;
+        this.imagenPromocion = imagenPromocion;
+    }
+
+    public int getImagenPromocion() {
+        return imagenPromocion;
+    }
+
+    public void setImagenPromocion(int imagenPromocion) {
+        this.imagenPromocion = imagenPromocion;
     }
 
     public String getEncargado() {
