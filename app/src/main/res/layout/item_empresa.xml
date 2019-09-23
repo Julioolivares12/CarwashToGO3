@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/logoPromocionList"
+            android:id="@+id/logoEmpresaList"
             android:layout_width="222dp"
             android:layout_height="286dp"
             android:layout_marginStart="16dp"
