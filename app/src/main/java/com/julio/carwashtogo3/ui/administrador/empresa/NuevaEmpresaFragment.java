@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -18,7 +19,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -119,7 +122,7 @@ public class NuevaEmpresaFragment extends Fragment {
                 empresa.setUbicacion(ubicacion);
                 empresa.setNivel(nivel);
                 empresa.setTelefono(telefono);
-                crearEmpresa();
+                crearEmpresa(empresa);
             }
         });
 
@@ -151,16 +154,27 @@ public class NuevaEmpresaFragment extends Fragment {
         }
     }
 
-    private void crearEmpresa(){
-        String key =refEmpresas.push().getKey();
+    private void crearEmpresa(Empresa em){
+       final  Empresa empresa = em;
+       final  String key =refEmpresas.push().getKey();
         assert key != null;
         empresa.setUid(key);
-        refEmpresas.child(key).setValue(empresa);
-        subirFoto(key,imagenSeleccionada);
+        refEmpresas.child(key).setValue(empresa).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                subirFoto(key,imagenSeleccionada,empresa);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "ocuurio un error al guardar los datos" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    public void subirFoto(final String k, Uri uri){
+    public void subirFoto(final String k, Uri uri,Empresa em){
         try {
+            final Empresa empresa = em;
             final StorageReference storageR =storageReference.child(Constantes.LOGOS_EMPRESAS +k+"."+ getFileExtension(uri));
             storageR.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
