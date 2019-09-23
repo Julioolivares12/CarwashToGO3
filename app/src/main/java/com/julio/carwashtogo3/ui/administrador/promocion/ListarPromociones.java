@@ -8,13 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 import com.julio.carwashtogo3.R;
+import com.julio.carwashtogo3.common.Constantes;
 
 public class ListarPromociones extends Fragment {
-
-
     private OnFragmentInteractionListener mListener;
-
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference refPromocion = database.getReference(Constantes.REF_PROMOCIONES);
+    private StorageReference storageReference;
     public ListarPromociones() {
     }
 
