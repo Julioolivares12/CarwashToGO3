@@ -48,7 +48,7 @@ public class EmpresaRecyclerViewAdapter extends RecyclerView.Adapter<EmpresaRecy
         private ImageView logoEmpresa;
         public EmpresaHolder(@NonNull View itemView) {
             super(itemView);
-            logoEmpresa = itemView.findViewById(R.id.logoEmpresaList);
+           logoEmpresa = itemView.findViewById(R.id.logoEmpresaList);
         }
         private void bind(final Empresa empresa,final EmpresaOnItemClickListener onItemClickListener){
             Glide.with(itemView.getContext()).load(empresa.getUrlImagen()).centerCrop().into(logoEmpresa);
