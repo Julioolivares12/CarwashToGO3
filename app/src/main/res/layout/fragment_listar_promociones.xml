@@ -17,6 +17,7 @@
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"
             tools:listitem="@layout/item_empresa" />
 
@@ -24,11 +25,13 @@
             android:id="@+id/tvTituloPromoLista"
             android:layout_width="296dp"
             android:layout_height="30dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Promociones"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.539"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +39,9 @@
             android:id="@+id/tvFiltroPromo"
             android:layout_width="92dp"
             android:layout_height="32dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="24dp"
             android:text="Filtrar Por"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTituloPromoLista" />
@@ -51,10 +54,10 @@
             android:hint="TODO"
             app:layout_constraintBottom_toTopOf="@+id/rb_promociones_list"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.095"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tvFiltroPromo"
             app:layout_constraintTop_toBottomOf="@+id/tvTituloPromoLista"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
     </android.support.constraint.ConstraintLayout>
 
