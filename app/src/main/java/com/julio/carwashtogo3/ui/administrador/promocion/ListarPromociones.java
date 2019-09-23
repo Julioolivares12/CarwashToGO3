@@ -1,4 +1,4 @@
-package com.julio.carwashtogo3.ui.administrador.empresa;
+package com.julio.carwashtogo3.ui.administrador.promocion;
 
 import android.content.Context;
 import android.net.Uri;
