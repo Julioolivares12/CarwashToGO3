@@ -1,5 +1,6 @@
 package com.julio.carwashtogo3
 
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -13,8 +14,12 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.julio.carwashtogo3.common.Constantes
+import com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractionListener {
+    override fun onFragmentInteraction(uri: Uri?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
