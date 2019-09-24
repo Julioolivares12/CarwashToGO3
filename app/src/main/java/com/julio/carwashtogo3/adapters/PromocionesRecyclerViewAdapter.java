@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.julio.carwashtogo3.R;
+import com.julio.carwashtogo3.listeners.PromocionOnItemClickListener;
 import com.julio.carwashtogo3.model.Promocion;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class PromocionesRecyclerViewAdapter extends RecyclerView.Adapter<Promoci
     List<Promocion> promocions;
     private int resource;
 
-    public PromocionesRecyclerViewAdapter(List<Promocion>promocions, int resource) {
+    public PromocionesRecyclerViewAdapter(List<Promocion> promocions, PromocionOnItemClickListener promocionOnItemClickListener) {
         this.promocions = promocions;
         this.resource = resource;
     }
@@ -37,7 +38,7 @@ public class PromocionesRecyclerViewAdapter extends RecyclerView.Adapter<Promoci
         viewHolder.txtFechaI.setText(promocion.getFechaIncio());
         viewHolder.txtFechaF.setText(promocion.getFechaFinal());
         viewHolder.txtPrecio.setText(promocion.getPrecio());
-        viewHolder.imagenPromo.setImageResource(promocion.getImagenPromocion());
+     //   viewHolder.imagenPromo.setImageResource(promocion.getImagenPromocion());
     }
 
     @Override
@@ -64,7 +65,7 @@ public class PromocionesRecyclerViewAdapter extends RecyclerView.Adapter<Promoci
             this.txtFechaI = (TextView)view.findViewById(R.id.tvFechaI);
             this.txtFechaF = (TextView)view.findViewById(R.id.tvFechaF);
             this.txtPrecio = (TextView)view.findViewById(R.id.tvPrecio);
-            this.imagenPromo = (ImageView)view.findViewById(R.id.logoPromocionList);
+        //    this.imagenPromo = (ImageView)view.findViewById(R.id.logoPromocionList);
 
 
         }
