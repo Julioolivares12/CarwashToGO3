@@ -34,7 +34,7 @@ public class ListarEmpresaFragment extends Fragment {
 
 
     private boolean isTwoPane=false;
-    private List<Empresa> empresaList = new ArrayList<>();
+    private final List<Empresa> empresaList = new ArrayList<>();
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference empresasRef;
 
@@ -52,10 +52,53 @@ public class ListarEmpresaFragment extends Fragment {
         if (view.findViewById(R.id.detalle_empresa)!= null){
             isTwoPane = true;
         }
-        RecyclerView recyclerView =view.findViewById(R.id.rb_empresas_list);
+     final    RecyclerView recyclerView =view.findViewById(R.id.rb_empresas_list);
 
-        getListaEmpresas();
-        setRecyclerView(recyclerView);
+        //getListaEmpresas();
+        //setRecyclerView(recyclerView);
+        empresasRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        Empresa empresa = snapshot.getValue(Empresa.class);
+                        empresaList.add(empresa);
+                    }
+                    Log.d("empresa list",empresaList.get(0).getNombreEmpresa());
+
+                    recyclerView.setAdapter(new EmpresaRecyclerViewAdapter(empresaList, new EmpresaOnItemClickListener() {
+                        @Override
+                        public void OnClick(Empresa empresa) {
+                            if (isTwoPane){
+                                Bundle arguments = new Bundle();
+                                arguments.putString(Constantes.UID_EMPRESA,empresa.getUid());
+                                EditarEmpresaFragment editarEmpresaFragment = new EditarEmpresaFragment();
+                                editarEmpresaFragment.setArguments(arguments);
+
+                                getChildFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.detalle_empresa,editarEmpresaFragment)
+                                        .commit();
+                            }else {
+                                Bundle argumets = new Bundle();
+                                argumets.putString(Constantes.UID_EMPRESA,empresa.getUid());
+                                EditarEmpresaFragment editarEmpresaFragment = new EditarEmpresaFragment();
+                                editarEmpresaFragment.setArguments(argumets);
+                                View view = getView();
+                                assert view != null;
+                                Navigation.findNavController(view).navigate(R.id.action_listarEmpresaFragment_to_editarEmpresaFragment,argumets);
+                            }
+                        }
+                    }));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "ocurrio un error "+databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
         return view;
     }
 
