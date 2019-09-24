@@ -52,7 +52,7 @@ public class ListarEmpresaFragment extends Fragment {
         if (view.findViewById(R.id.detalle_empresa)!= null){
             isTwoPane = true;
         }
-     final    RecyclerView recyclerView =view.findViewById(R.id.rb_empresas_list);
+     final RecyclerView recyclerView =view.findViewById(R.id.rb_empresas_list);
 
         //getListaEmpresas();
         //setRecyclerView(recyclerView);
@@ -91,6 +91,8 @@ public class ListarEmpresaFragment extends Fragment {
                         }
                     }));
                 }
+
+
             }
 
             @Override
@@ -99,10 +101,12 @@ public class ListarEmpresaFragment extends Fragment {
             }
         });
 
+
+
         return view;
     }
 
-    private void setRecyclerView(RecyclerView recyclerView){
+    private void setRecyclerView(final RecyclerView recyclerView){
         recyclerView.setAdapter(new EmpresaRecyclerViewAdapter(empresaList, new EmpresaOnItemClickListener() {
             @Override
             public void OnClick(Empresa empresa) {

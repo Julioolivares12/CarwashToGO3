@@ -64,7 +64,7 @@
     <fragment
         android:id="@+id/editarEmpresaFragment"
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.EditarEmpresaFragment"
-        android:label="editar empresa"
+        android:label="detalle empresa"
         tools:layout="@layout/fragment_editar_empresa" />
     <fragment
         android:id="@+id/navigation_nuevo_encargado"
