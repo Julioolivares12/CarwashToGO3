@@ -74,4 +74,8 @@ public class ListarEmpresaFragment extends Fragment {
         }));
     }
 
+    private void getListaEmpresas(){
+        
+    }
+
 }

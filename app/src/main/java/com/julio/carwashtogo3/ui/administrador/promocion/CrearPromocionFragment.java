@@ -96,7 +96,7 @@ public class CrearPromocionFragment extends Fragment {
                 String descripcionPromo = edtDescripcionPromo.getText().toString();
 
                 promocion.setNombre(nombre);
-                promocion.setPrecio(precio);
+                promocion.setPrecio(String.valueOf(precio));
                 promocion.setFechaIncio(fechainicio);
                 promocion.setFechaFinal(fechaFinal);
                 promocion.setDescripcionPromo(descripcionPromo);
