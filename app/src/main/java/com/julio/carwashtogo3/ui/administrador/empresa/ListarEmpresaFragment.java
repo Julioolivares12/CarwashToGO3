@@ -59,7 +59,9 @@ public class ListarEmpresaFragment extends Fragment {
         empresasRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 if (dataSnapshot.exists()){
+                    empresaList.clear();
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                         Empresa empresa = snapshot.getValue(Empresa.class);
                         empresaList.add(empresa);
