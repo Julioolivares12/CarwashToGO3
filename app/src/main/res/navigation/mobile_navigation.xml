@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_listar_empresas">
-<!--
+    app:startDestination="@+id/navigation_listar_empresas">
+    <!--
     <fragment
         android:id="@+id/nav_home"
         android:name="com.julio.carwashtogo3.ui.home.HomeFragment"
@@ -46,7 +46,7 @@
         android:id="@+id/navigation_listar_empresas"
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.ListarEmpresaFragment"
         android:label="lista empresa"
-        tools:layout="@layout/fragment_listar_empresa" >
+        tools:layout="@layout/fragment_listar_empresa">
         <action
             android:id="@+id/action_listarEmpresaFragment_to_editarEmpresaFragment"
             app:destination="@id/editarEmpresaFragment" />
@@ -61,6 +61,11 @@
         android:name="com.julio.carwashtogo3.ui.administrador.promocion.CrearPromocionFragment"
         android:label="crear promocion"
         tools:layout="@layout/fragment_crear_promocion" />
+    <fragment
+        android:id="@+id/navigation_nuevo_paquete"
+        android:name="com.julio.carwashtogo3.ui.administrador.paquetes.NuevoPaqueteFragment"
+        android:label="Nuevo Paquete"
+        tools:layout="@layout/fragment_nuevo_paquete" />
     <fragment
         android:id="@+id/editarEmpresaFragment"
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.EditarEmpresaFragment"
@@ -87,7 +92,7 @@
         android:id="@+id/navigation_catalogo_productos"
         android:name="com.julio.carwashtogo3.ui.cliente.catalogo.CatalogoDeProductosFragment"
         android:label="catalogo de productos"
-        tools:layout="@layout/fragment_catalogo_de_productos" >
+        tools:layout="@layout/fragment_catalogo_de_productos">
         <action
             android:id="@+id/action_catalogoDeProductosFragment_to_detalleProductoFragment"
             app:destination="@id/detalleProductoFragment" />
@@ -101,7 +106,7 @@
         android:id="@+id/navigation_cuponera"
         android:name="com.julio.carwashtogo3.ui.cliente.cupon.CuponeraFragment"
         android:label="cuponera"
-        tools:layout="@layout/fragment_cuponera" >
+        tools:layout="@layout/fragment_cuponera">
         <action
             android:id="@+id/action_cuponeraFragment_to_detalleCuponFragment"
             app:destination="@id/detalleCuponFragment" />

@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 R.id.navigation_nuevo_encargado,
                 R.id.navigation_perfil,
                 R.id.navigation_cuponera,
-                R.id.navigation_catalogo_productos
+                R.id.navigation_catalogo_productos,
+                R.id.navigation_nuevo_paquete
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -89,6 +90,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 menu.findItem(R.id.navigation_nuevo_encargado).isVisible = false
                 menu.findItem(R.id.navigation_cuponera).isVisible = false
                 menu.findItem(R.id.navigation_add_vehiculo).isVisible = false
+                menu.findItem(R.id.navigation_nuevo_paquete).isVisible = false
 
                 //cliente activados
                 menu.findItem(R.id.navigation_cuponera).isVisible = true
@@ -106,6 +108,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 menu.findItem(R.id.navigation_crear_empresas).isVisible = true
                 menu.findItem(R.id.navigation_lista_encargados).isVisible = true
                 menu.findItem(R.id.navigation_nuevo_encargado).isVisible = true
+                menu.findItem(R.id.navigation_nuevo_paquete).isVisible = true
             }
             "encargado" -> {
             }
