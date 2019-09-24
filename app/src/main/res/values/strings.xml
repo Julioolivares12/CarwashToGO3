@@ -36,6 +36,7 @@
 
 
     <string name="listarEmpresas">listar empresas</string>
+    <string name="listarPromociones">listar empresas</string>
     <string name="nueva_empresa">nueva empresa</string>
     <string name="crear_promosion">crear promosion</string>
     <string name="agregar_encargado">agregar encargado</string>
