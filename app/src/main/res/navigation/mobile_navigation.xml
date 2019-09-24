@@ -116,5 +116,10 @@
         android:name="com.julio.carwashtogo3.ui.cliente.catalogo.DetalleProductoFragment"
         android:label="detalle producto"
         tools:layout="@layout/fragment_detalle_producto" />
+    <fragment
+        android:id="@+id/navigation_lista_promociones"
+        android:name="com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones"
+        android:label="fragment_listar_promociones"
+        tools:layout="@layout/fragment_listar_promociones" />
     <!--fin cliente-->
 </navigation>

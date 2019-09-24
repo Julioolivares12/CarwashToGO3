@@ -24,7 +24,7 @@ public class ListarPromociones extends Fragment {
     private OnFragmentInteractionListener mListener;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     //database = FirebaseDatabase.getInstance();
-    DatabaseReference refPromocion = database.getReference(Constantes.REF_EMPRESA);;
+    DatabaseReference refPromocion = database.getReference(Constantes.REF_PROMOCIONES);;
     //refPromocion
     private StorageReference storageReference;
     private RecyclerView miRecyclerView;
@@ -50,7 +50,7 @@ public class ListarPromociones extends Fragment {
     }
 
     private void getPromocionesFromFirebase(){
-        refPromocion.child("Empresas").addValueEventListener(new ValueEventListener() {
+        refPromocion.child("promociones").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                if (dataSnapshot.exists()){
