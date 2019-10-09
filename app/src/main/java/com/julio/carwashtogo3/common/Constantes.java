@@ -4,6 +4,7 @@ public class Constantes {
     public static String ROL_USER = "rol_user";
     public static String REF_EMPRESA="empresas";
     public static String REF_USUARIOS="usuarios";
+    public static String REF_PAQUETES="paquetes";
     public static String REF_PROMOCIONES="promociones";
     public static String LOGOS_EMPRESAS="logos_empresas";
     public static String IMAGENES_POMOCIONES="imagenes-promociones";

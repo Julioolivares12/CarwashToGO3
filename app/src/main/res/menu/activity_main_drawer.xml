@@ -17,6 +17,11 @@
         <item android:title="@string/agregar_encargado"
             android:id="@+id/navigation_nuevo_encargado"
             android:icon="@drawable/ic_person_add_black_24dp"/>
+
+        <item android:title="@string/agregar_paquete"
+            android:id="@+id/navigation_nuevo_paquete"
+            android:icon="@drawable/ic_person_add_black_24dp"/>
+
         <item android:title="@string/listar_encargados"
             android:id="@+id/navigation_lista_encargados"
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>

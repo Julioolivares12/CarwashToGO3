@@ -40,6 +40,7 @@
     <string name="nueva_empresa">nueva empresa</string>
     <string name="crear_promosion">crear promosion</string>
     <string name="agregar_encargado">agregar encargado</string>
+    <string name="agregar_paquete">agregar paquete</string>
     <string name="listar_encargados">listar encargados</string>
     <string name="communicate">Communicate</string>
 
@@ -60,4 +61,10 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="nueva_promocion">Nueva Promocion</string>
     <string name="incluye">incluye</string>
+
+    <string name="paquete_descripcion">Descripcion</string>
+    <string name="paquete_precio">Precio</string>
+    <string name="paquete_titulo">Titulo</string>
+    <string name="titulo_paquete">Titulo</string>
+    <string name="nuevo_paquete">Nuevo Paquete</string>
 </resources>
