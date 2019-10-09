@@ -67,4 +67,5 @@
     <string name="paquete_titulo">Titulo</string>
     <string name="titulo_paquete">Titulo</string>
     <string name="nuevo_paquete">Nuevo Paquete</string>
+    <string name="imagen_para_paquete">Imagen Paquete</string>
 </resources>
