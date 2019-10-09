@@ -15,6 +15,7 @@ public class Constantes {
     public static String TELEFONO_EMPRESA="telefono_empresa";
     public static String LOGO_EMPRESA="logo_empresa";
     public static String UID_EMPRESA="Uid_empresa";
+    public static String UID_PROMOCION="Uid_promocion";
     public static String integrante1 = "ISAAC EVERALDO MOLINA PONCE";
     public static String[]  niveles ;
     static  {
