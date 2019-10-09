@@ -17,12 +17,25 @@
             android:layout_margin="16dp">
 
             <Button
+                android:id="@+id/btnagregarfotopaquete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="192dp"
+                android:layout_marginRight="192dp"
+                android:backgroundTint="@color/colorNegroBotones"
+                android:text="Agregar foto"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_titulo_paqquete" />
+
+            <Button
                 android:id="@+id/btnguardarpaquete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="144dp"
-                android:layout_marginRight="144dp"
+                android:layout_marginEnd="88dp"
+                android:layout_marginRight="88dp"
                 android:backgroundTint="@color/colorNegroBotones"
                 android:text="guardar"
                 android:textColor="@android:color/white"
