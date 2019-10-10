@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class listar_paquetes extends Fragment {
+public class ListarPaquetesFragment extends Fragment {
 
 
 
