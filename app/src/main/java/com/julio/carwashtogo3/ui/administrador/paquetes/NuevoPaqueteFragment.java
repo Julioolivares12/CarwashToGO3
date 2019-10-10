@@ -39,10 +39,9 @@ public class NuevoPaqueteFragment extends Fragment {
 
 
     private EditText edtdescripcion,edtprecio,edttitulo;
-    private Button btnGuardarPaquete;
+    private Button btnGuardarPaquete,btnsubirfotopaquete;
     public static final int REQUEST_GALERIA2=10;
     private Uri imagenSeleccionada;
-
     //firebase
     //----------------------------------------
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -63,9 +62,18 @@ public class NuevoPaqueteFragment extends Fragment {
         edtprecio = view.findViewById(R.id.edt_precio_paquete);
         edttitulo = view.findViewById(R.id.edt_titulo_paqquete);
         btnGuardarPaquete= view.findViewById(R.id.btnguardarpaquete);
-
+        btnsubirfotopaquete = view.findViewById(R.id.btnagregarfotopaquete);
         storageReference = FirebaseStorage.getInstance().getReference();
-        btnGuardarPaquete.setEnabled(true);
+        btnGuardarPaquete.setEnabled(false);
+        btnsubirfotopaquete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrigaleria = new Intent();
+                abrigaleria.setType("image/*");
+                abrigaleria.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(abrigaleria,"selecciona una imagen"),REQUEST_GALERIA2);
+            }
+        });
         btnGuardarPaquete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +102,6 @@ public class NuevoPaqueteFragment extends Fragment {
                 assert data != null;
                 imagenSeleccionada = data.getData();
                 btnGuardarPaquete.setEnabled(true);
-                //crearPaquete();
             }
         }
     }
@@ -107,7 +114,7 @@ public class NuevoPaqueteFragment extends Fragment {
         refPaquetes.child(key).setValue(paquete).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                //subirFoto(key,imagenSeleccionada,empresa);
+                subirFoto(key,imagenSeleccionada,paquete);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -120,7 +127,7 @@ public class NuevoPaqueteFragment extends Fragment {
     public void subirFoto(final String k, Uri uri,Paquete em){
         try {
             final Paquete paquete = em;
-            final StorageReference storageR =storageReference.child(Constantes.LOGOS_EMPRESAS +k+"."+ getFileExtension(uri));
+            final StorageReference storageR =storageReference.child(Constantes.LOGOS_PAQUETES +k+"."+ getFileExtension(uri));
             storageR.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -132,6 +139,10 @@ public class NuevoPaqueteFragment extends Fragment {
                             refPaquetes.child(k).setValue(paquete);
                             View view = getView();
                             assert view != null;
+                            edtdescripcion.setText("");
+                            edtprecio.setText("");
+                            edttitulo.setText("");
+                            btnGuardarPaquete.setEnabled(false);
                             Snackbar.make(view,"Paquete creado",Snackbar.LENGTH_SHORT).show();
                         }
                     });
