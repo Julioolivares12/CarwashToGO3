@@ -46,24 +46,33 @@ public class ListarPaquetesFragment extends Fragment {
 
 
         View view = inflater.inflate ( R.layout.fragment_listar_paquetes, container, false );
-        paquetesRef = firebaseDatabase.getReference ( Constantes.REF_PAQUETES );
+        paquetesRef = firebaseDatabase.getReference(Constantes.REF_PAQUETES);
         //if (view.findViewById ( R.id.detalle_empresa )!=null){
           //  isTwoPane = true;
         //}
 
          final RecyclerView recyclerView =view.findViewById(R.id.rb_paquetes_list);
-         getListaPaquete ();
-         recyclerView.setAdapter ( new PaquetesRecyclerViewAdapater ( paquetesList, new PaquetesOnItemClickListener () {
-             @Override
-             public void OnClick(Paquete paquete) {
-             }
-         } ) );
+         //getListaPaquete ();
 
-       /*
-       *  paquetesRef.addValueEventListener ( new ValueEventListener () {
+ paquetesRef.addValueEventListener ( new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+
+                if (dataSnapshot.exists ()){
+                    paquetesList.clear ();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren ()){
+                        Paquete paquete = snapshot.getValue(Paquete.class);
+                        paquetesList.add(paquete);
+                    }
+
+                    recyclerView.setAdapter (new PaquetesRecyclerViewAdapater ( paquetesList, new PaquetesOnItemClickListener () {
+                        @Override
+                        public void OnClick(Paquete paquete) {
+                            //aqui la logica  para ver el detalle
+                        }
+                    } ));
+                }
             }
 
 
@@ -74,7 +83,7 @@ public class ListarPaquetesFragment extends Fragment {
             }
         } );
 
-       * */
+
         return  view;
     }
 

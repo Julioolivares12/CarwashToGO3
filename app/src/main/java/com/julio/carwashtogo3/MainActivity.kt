@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_listar_empresas,
-                R.id.navigation_listar_paquetes,
+                R.id.navigation_listarPaquetes,
                 R.id.navigation_crear_empresas,
                 R.id.navigation_agregar_promociones,
                 R.id.navigation_lista_encargados,
@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 menu.findItem(R.id.navigation_catalogo_productos).isVisible = false
 
                 //administrado
-                 menu.findItem(R.id.navigation_listar_paquetes).isVisible = true
+                 menu.findItem(R.id.navigation_listarPaquetes).isVisible = true
                 menu.findItem(R.id.navigation_agregar_promociones).isVisible = true
                 menu.findItem(R.id.navigation_crear_empresas).isVisible = true
                 menu.findItem(R.id.navigation_lista_encargados).isVisible = true
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                         //inflater = navHostFragment.getNavController().getNavInflater();
                         //NavGraph graph = inflater.inflate(R.navigation.mobile_navigation);
                         graph.startDestination = R.id.navigation_listar_empresas
-                        graph.startDestination = R.id.navigation_listar_paquetes
+                        //graph.startDestination = R.id.navigation_listar_paquetes
                         //NavigationView navigationView = findViewById(R.id.nav_view);
                         NavigationUI.setupWithNavController(navigationView, navController)
                     }
