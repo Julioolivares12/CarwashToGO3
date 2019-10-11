@@ -25,10 +25,10 @@
         <item android:title="@string/listar_encargados"
             android:id="@+id/navigation_lista_encargados"
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
-        <item android:title="@string/listarPromociones"
-            android:id="@+id/navigation_lista_promociones"
-            android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
 
+        <item android:title="@string/listarPaquetes"
+            android:id="@+id/navigation_listar_paquetes"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
 
         <item android:title="@string/cuponera"
             android:id="@+id/navigation_cuponera"/>
