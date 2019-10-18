@@ -6,22 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tb_login"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-    </android.support.design.widget.AppBarLayout>
+    <include android:id="@+id/appbar"
+        layout="@layout/toolbar_admin" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

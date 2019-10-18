@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,15 +42,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        toolbar = findViewById(R.id.tb_login);
+        toolbar = findViewById(R.id.toolbar_admin);
         setSupportActionBar(toolbar);
 
-        toolbar.setTitle(getString(R.string.login));
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null){
-            actionBar.setHomeButtonEnabled(true);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+       // toolbar.setTitle(getString(R.string.login));
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null){
+//            actionBar.setHomeButtonEnabled(true);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//        }
 
         edt_correo = findViewById(R.id.edt_correoR);
         edt_password = findViewById(R.id.edt_passwordR);
@@ -71,7 +72,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void login(String c,String p){
+
+    //agrego menu a toolbar
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate( R.menu.main,menu );
+        return  true;
+    }
+
+    private void login(String c, String p){
         mAuth.signInWithEmailAndPassword(c,p).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

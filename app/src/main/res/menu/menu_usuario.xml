@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/aCERCA"
+        android:title="Acerca De"
+        android:visible="true" />
+    <item
+        android:id="@+id/salir"
+        android:title="Salir"
+        android:visible="true" />
+</menu>
