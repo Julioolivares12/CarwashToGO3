@@ -1,15 +1,22 @@
 package com.julio.carwashtogo3
 
+import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import androidx.navigation.findNavController
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.text.Html
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
@@ -28,6 +35,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -71,6 +79,57 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    //opciones menu action bar
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+
+            R.id.action_settings -> {
+                Toast.makeText(this, "Se presiono Settigs", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_acerca-> {
+
+                // Initialize a new instance of
+                val builder = AlertDialog.Builder(this@MainActivity)
+
+                // Set the alert dialog title
+                builder.setTitle("Acerca de Carwash TO Go")
+
+                // Display a message on alert dialog
+                builder.setMessage(Html.fromHtml("<b>Julio <br>"+
+                        "Juan <br>"+
+                        "Marvin <br>"+
+                        "Isaac <br>"+
+                        "Rebeca <br>"+
+                        "Cristian </b>"))
+
+
+                // Set a positive button and its click listener on alert dialog
+                builder.setPositiveButton("OK"){dialog, which ->
+                    // Do something when user press the positive button
+                    //Toast.makeText(applicationContext,"Ok, we change the app background.",Toast.LENGTH_SHORT).show()
+
+                }
+
+
+                // Finally, make the alert dialog using builder
+                val dialog: AlertDialog = builder.create()
+
+                // Display the alert dialog on app interface
+                dialog.show()
+
+                Toast.makeText(this, "Aceca De", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_salir -> {
+                finishAffinity()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

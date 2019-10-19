@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_admin);
         setSupportActionBar(toolbar);
 
+
        // toolbar.setTitle(getString(R.string.login));
 //        ActionBar actionBar = getSupportActionBar();
 //        if (actionBar != null){
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate( R.menu.main,menu );
+        getMenuInflater().inflate( R.menu.menu_admin,menu );
         return  true;
     }
 
