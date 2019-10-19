@@ -27,6 +27,7 @@
             app:layout_constraintEnd_toEndOf="@+id/edt_passwordR"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/edt_passwordR"
+            android:background="@drawable/boton_redondo"
             app:layout_constraintTop_toBottomOf="@+id/edt_passwordR" />
 
         <EditText
@@ -82,6 +83,7 @@
             android:drawableLeft="@drawable/social_facebook"
             android:text="@string/facebook"
             android:textColor="@android:color/white"
+            android:background="@drawable/boton_redondo"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -97,6 +99,7 @@
             app:layout_constraintStart_toStartOf="@+id/btnLoginWithFacebook"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginWithFacebook"
             android:backgroundTint="#00acee"
+            android:background="@drawable/boton_redondo"
             android:textColor="@android:color/white"/>
 
         <Button
@@ -110,6 +113,7 @@
             app:layout_constraintStart_toStartOf="@+id/btnLoginWithTwitter"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginWithTwitter"
             android:backgroundTint="#db4a39"
+            android:background="@drawable/boton_redondo"
             android:textColor="@android:color/white"/>
 
         <View
