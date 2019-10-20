@@ -137,11 +137,11 @@ public class RegistroActivity extends AppCompatActivity {
                         crearUsuario(usuarioActual,user);
                         actualizarUI(usuarioActual);
                     }else{
-                        Toast.makeText(RegistroActivity.this, "occurrio un error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegistroActivity.this, "occurrio un error"+task.getException (), Toast.LENGTH_SHORT).show();
                     }
 
                 }else {
-                    Toast.makeText(RegistroActivity.this, "ocurrio un error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "ocurrio un error"+ task.getException (), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -154,6 +154,10 @@ public class RegistroActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     role = dataSnapshot.child("rol").toString();
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    intent.putExtra(Constantes.ROL_USER,role);
+                    startActivity(intent);
+                    finish();
                 }
             }
 
@@ -163,10 +167,7 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        intent.putExtra(Constantes.ROL_USER,role);
-        startActivity(intent);
-        finish();
+
     }
 
     //crea un usuario
