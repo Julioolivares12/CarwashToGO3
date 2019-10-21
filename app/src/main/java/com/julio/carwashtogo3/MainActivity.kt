@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import com.google.firebase.messaging.FirebaseMessaging
 import com.julio.carwashtogo3.common.Constantes
 import com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones
 
@@ -71,10 +72,34 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
             if (rol != null){
                 hideOptionMenu(rol)
                 setNavigationDestination(rol)
+                suscribirUsuarioPaquetes(rol)
+                suscribirUsuarioAPromociones(rol)
+            }
+
+
+        }
+
+    }
+
+    fun suscribirUsuarioPaquetes(rol : String){
+        if (rol == "cliente"){
+            FirebaseMessaging.getInstance().subscribeToTopic("paquetes").addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(applicationContext,"suscrito",Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
 
+    fun suscribirUsuarioAPromociones(rol : String){
+        if (rol == "cliente"){
+            FirebaseMessaging.getInstance().subscribeToTopic("promociones").addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(applicationContext,"suscrito a promociones",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
