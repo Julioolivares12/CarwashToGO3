@@ -20,6 +20,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.julio.carwashtogo3.common.Constantes
 import com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones
@@ -81,6 +82,9 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
 
     }
 
+    fun enviarTokenToServer(){
+
+    }
     fun suscribirUsuarioPaquetes(rol : String){
         if (rol == "cliente"){
             FirebaseMessaging.getInstance().subscribeToTopic("paquetes").addOnCompleteListener {
@@ -178,8 +182,8 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 menu.findItem(R.id.navigation_nuevo_paquete).isVisible = false
 
                 //cliente activados
-                menu.findItem(R.id.navigation_cuponera).isVisible = true
-                menu.findItem(R.id.navigation_add_vehiculo).isVisible = true
+                menu.findItem(R.id.navigation_cuponera).isVisible = false
+                menu.findItem(R.id.navigation_add_vehiculo).isVisible = false
                 menu.findItem(R.id.navigation_catalogo_productos).isVisible = true
             }
             "administrador" -> {
