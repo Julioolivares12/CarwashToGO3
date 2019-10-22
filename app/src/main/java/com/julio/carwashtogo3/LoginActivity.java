@@ -28,6 +28,7 @@ import com.julio.carwashtogo3.common.Constantes;
 import com.julio.carwashtogo3.model.User;
 
 public class LoginActivity extends AppCompatActivity {
+    private Toolbar tb_inicio;
     private Toolbar toolbar;
     private EditText edt_correo,edt_password;
 
@@ -44,6 +45,21 @@ public class LoginActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar_admin);
         setSupportActionBar(toolbar);
+
+        tb_inicio = findViewById(R.id.tb_inicio);
+        setSupportActionBar(tb_inicio);
+
+        tb_inicio.setTitle("");
+
+        Button toolbarRegistro = findViewById(R.id.btnToolbarRegistro);
+
+        toolbarRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),RegistroActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
        // toolbar.setTitle(getString(R.string.login));
@@ -76,11 +92,6 @@ public class LoginActivity extends AppCompatActivity {
 
     //agrego menu a toolbar
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate( R.menu.menu_admin,menu );
-        return  true;
-    }
 
     private void login(String c, String p){
         mAuth.signInWithEmailAndPassword(c,p).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
