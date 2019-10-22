@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,12 +53,12 @@ public class EditarEmpresaFragment extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference(Constantes.REF_EMPRESA);
 
-        txtNombreEmpresaDetalle = view.findViewById(R.id.txtNombreEmpresaDetalle);
-        txtEncargadoEmpresaDetalle = view.findViewById(R.id.txtEncargadoEmpresaDetalle);
+        txtNombreEmpresaDetalle = view.findViewById(R.id.txtDescripcionPaqueteDetalle );
+        txtEncargadoEmpresaDetalle = view.findViewById(R.id.txtPrecioPaqueteDetalle );
         txtNivelEmpresaDetalle = view.findViewById(R.id.txtNivelEmpresaDetalle);
-        txtUbicacionEmpresaDetalle = view.findViewById(R.id.txtUbicacionEmpresaDetalle);
+        txtUbicacionEmpresaDetalle = view.findViewById(R.id.txtTituloPaqueteDetalle );
         txtTelefonoEmpresaDetalle = view.findViewById(R.id.txtTelefonoEmpresaDetalle);
-        imageView = view.findViewById(R.id.iv_imagen_EmpresaDetalle);
+        imageView = view.findViewById(R.id.iv_imagen_PaqueteDetalle );
         if (getArguments() != null){
             UIdEmpresa = getArguments().getString(Constantes.UID_EMPRESA);
             assert UIdEmpresa != null;

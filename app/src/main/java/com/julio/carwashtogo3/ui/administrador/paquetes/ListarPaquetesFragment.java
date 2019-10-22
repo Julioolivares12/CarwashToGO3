@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.navigation.Navigation;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +24,7 @@ import com.julio.carwashtogo3.adapters.PaquetesRecyclerViewAdapater;
 import com.julio.carwashtogo3.common.Constantes;
 import com.julio.carwashtogo3.listeners.PaquetesOnItemClickListener;
 import com.julio.carwashtogo3.model.Paquete;
+import com.julio.carwashtogo3.ui.administrador.empresa.EditarEmpresaFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +73,30 @@ public class ListarPaquetesFragment extends Fragment {
                         @Override
                         public void OnClick(Paquete paquete) {
                             //aqui la logica  para ver el detalle
+
+                            if (isTwoPane){
+                                Bundle arguments = new Bundle();
+                                arguments.putString(Constantes.UID_PAQUETE,paquete.getUid());
+                                editarPaqueteFragment editarPaqueteFragment = new editarPaqueteFragment();
+                                editarPaqueteFragment.setArguments(arguments);
+
+                               /* queda pendiente crear el fragmente de diseño de datlle para poner este pedaso de codigo
+                               getChildFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.detalle_paquete,editarPaqueteFragment)
+                                        .commit();*/
+                            }else {
+                                Bundle argumets = new Bundle();
+                                argumets.putString(Constantes.UID_PAQUETE,paquete.getUid());
+                                editarPaqueteFragment editarPaqueteFragment = new editarPaqueteFragment();
+                                editarPaqueteFragment.setArguments(argumets);
+                                View view = getView();
+                                assert view != null;
+                                Navigation.findNavController(view).navigate(R.id.action_listarPaqueteFragment_to_editarPaqueteFragment,argumets);
+                            }
+
+
+
                         }
                     } ));
                 }
