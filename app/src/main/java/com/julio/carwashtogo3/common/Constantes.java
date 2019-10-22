@@ -9,6 +9,7 @@ public class Constantes {
     public static String LOGOS_EMPRESAS="logos_empresas";
     public static String LOGOS_PAQUETES="logos_paquetes";
     public static String IMAGENES_POMOCIONES="imagenes-promociones";
+    public static String REF_COMPRAS="compras";
 
     public static String NOMBRE_EMPRESA="nombre_empresa";
     public static String ENCARGADO_ENPRESA="encargado_empresa";

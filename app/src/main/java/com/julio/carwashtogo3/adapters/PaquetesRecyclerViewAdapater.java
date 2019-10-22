@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.julio.carwashtogo3.R;
@@ -50,11 +51,14 @@ public class PaquetesRecyclerViewAdapater extends RecyclerView.Adapter<PaquetesR
     class PaquetesHolder extends RecyclerView.ViewHolder{
 
            private ImageView logoPaquetes;
+           private TextView textView;
            public PaquetesHolder(@NonNull View itemView) {
                super(itemView);
                logoPaquetes = itemView.findViewById(R.id.logoPaqueteList);
+               textView= itemView.findViewById ( R.id.tv_titulo_paquete );
         }
         private void bind(final Paquete paquete,final PaquetesOnItemClickListener onItemClickListener){
+               textView.setText ( paquete.getTitulo());
               Glide.with(itemView.getContext()).load(paquete.getUrlImagen()).centerCrop().into(logoPaquetes);
     //
               itemView.setOnClickListener(new View.OnClickListener() {

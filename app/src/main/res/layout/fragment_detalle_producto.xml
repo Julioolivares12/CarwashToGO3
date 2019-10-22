@@ -12,72 +12,86 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="2dp">
-        <LinearLayout
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/img_compra"
-
-                />
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="400dp"
+                    android:layout_height="300dp"
+                    android:id="@+id/img_compra"
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/titulo_paquete"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
 
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_titulo_compra"
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/titulo_paquete"
 
+                        />
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="algo"
+                        android:id="@+id/tv_titulo_compra"
+                        android:layout_marginStart="15dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/paquete_descripcion"/>
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="algo"
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/tv_descripcion_compra"
+                        android:layout_marginStart="15dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/selecciona_una_fecha"
+                        />
+                    <EditText
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fechaCompra"
+                        android:focusable="false"
+                        android:inputType="date"
+                        android:maxLines="1"
+                        android:layout_marginStart="15dp" />
+                    <ImageButton
+                        android:layout_marginLeft="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnAbrirCalendario"
+                        android:src="@drawable/calendar_1"
+                        android:layout_marginStart="50dp" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/paquete_descripcion"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_descripcion_compra"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/selecciona_una_fecha"
-                    />
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/fechaCompra"
-                    android:focusable="false"
-                    android:inputType="date"
-                    android:maxLines="1"
-                    />
-                <ImageButton
-                    android:layout_marginLeft="50dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnAbrirCalendario"
-                    android:src="@drawable/calendar_1"
-                    android:layout_marginStart="50dp" />
-            </LinearLayout>
-        </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
 
     </android.support.v7.widget.CardView>
     <Button
