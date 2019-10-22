@@ -6,8 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <include android:id="@+id/appbar"
-        layout="@layout/toolbar_admin" />
+<!--    <include android:id="@+id/appbar"-->
+<!--        layout="@layout/toolbar_admin" />-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_inicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <Button
+            android:layout_margin="5dp"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnToolbarRegistro"
+            android:text="@string/registrar"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            />
+    </android.support.v7.widget.Toolbar>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

@@ -10,51 +10,21 @@
 
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tb_inicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-        <Button
-            android:layout_margin="5dp"
-            android:background="@android:color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnToolbarLogin"
-            android:text="@string/login"
-            android:textColor="@android:color/white"/>
-        <Button
-            android:layout_margin="5dp"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnToolbarRegistro"
-            android:text="@string/registrar"
-            android:textColor="@android:color/white"
-            android:background="@android:color/transparent"
-            />
-    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ETPS3"
-        android:textSize="40dp"
-        android:layout_gravity="center"/>
-
+        android:layout_gravity="center"
+        android:text="Bienvenido"
+        android:textSize="40dp" />
 
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/logo"/>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="ETPS3"/>
+        android:layout_height="333dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/carwash" />
 
 </LinearLayout>

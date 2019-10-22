@@ -128,12 +128,12 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 builder.setTitle("Acerca de Carwash TO Go")
 
                 // Display a message on alert dialog
-                builder.setMessage(Html.fromHtml("<b>Julio <br>"+
-                        "Juan <br>"+
-                        "Marvin <br>"+
-                        "Isaac <br>"+
-                        "Rebeca <br>"+
-                        "Cristian </b>"))
+                builder.setMessage(Html.fromHtml("Julio Roberto Olivares Perez<br>"+
+                        "Juan Carlos Garcia Santos<br>"+
+                        "Marvin Josue Cortez Rodas<br>"+
+                        "Isaac Everaldo Molina Ponce<br>"+
+                        "Rebeca Sarai Orellana Mendez<br>"+
+                        "Cristian Adalberto Torres Alfaro"))
 
 
                 // Set a positive button and its click listener on alert dialog
