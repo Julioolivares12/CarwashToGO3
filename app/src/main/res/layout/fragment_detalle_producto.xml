@@ -47,6 +47,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/paquete_descripcion"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_descripcion_compra"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selecciona_una_fecha"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fechaCompra"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    />
+                <ImageButton
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnAbrirCalendario"
+                    android:src="@drawable/calendar_1"
+                    android:layout_marginStart="50dp" />
             </LinearLayout>
         </LinearLayout>
 

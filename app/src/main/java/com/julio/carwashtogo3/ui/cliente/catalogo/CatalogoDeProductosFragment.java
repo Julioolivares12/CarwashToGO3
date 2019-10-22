@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,16 +54,20 @@ public class CatalogoDeProductosFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated ( view, savedInstanceState );
         paqueref =firebaseDatabase.getReference (Constantes.REF_PAQUETES);
+
         final RecyclerView recyclerView = view.findViewById ( R.id.rb_catalogo_productos);
-        paqueref.addValueEventListener ( new ValueEventListener () {
+        paqueref.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     paqueteList.clear();
                     for (DataSnapshot d : dataSnapshot.getChildren ()){
                         Paquete paquete = d.getValue (Paquete.class);
+                       // Log.i ( "catalogo individual",paquete.getTitulo());
                         paqueteList.add(paquete);
                     }
+                    Log.i ("Catalogo",paqueteList.toString ());
 
                     recyclerView.setAdapter ( new PaquetesRecyclerViewAdapater ( paqueteList, new PaquetesOnItemClickListener () {
                         @Override
@@ -80,7 +85,7 @@ public class CatalogoDeProductosFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.i ( "Error catalogo",databaseError.getMessage () );
             }
         });
     }
