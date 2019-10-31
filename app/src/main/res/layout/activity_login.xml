@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnToolbarRegistro"
             android:text="@string/registrar"
+            android:drawableLeft="@drawable/ic_person_add_white_24dp"
             android:textColor="@android:color/white"
             android:background="@android:color/transparent"
             />

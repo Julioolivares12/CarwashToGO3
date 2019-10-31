@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edt_correo,edt_password;
 
     private Button btnLogin,btnLoginWithFacebook,btnLoginWithTwitter,btnLoginWithGoogle;
-    private String rol = "";
+    
     FirebaseAuth mAuth;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference(Constantes.REF_USUARIOS);
@@ -92,6 +92,15 @@ public class LoginActivity extends AppCompatActivity {
 
     //agrego menu a toolbar
 
+
+    @Override
+    protected void onStart() {
+        super.onStart ();
+        FirebaseUser usuarioActual = mAuth.getCurrentUser();
+     if (usuarioActual != null){
+          updateUI(usuarioActual);
+        }
+    }
 
     private void login(String c, String p){
         mAuth.signInWithEmailAndPassword(c,p).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
