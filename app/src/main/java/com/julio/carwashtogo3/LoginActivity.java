@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edt_correo,edt_password;
 
     private Button btnLogin,btnLoginWithFacebook,btnLoginWithTwitter,btnLoginWithGoogle;
-    
+
     FirebaseAuth mAuth;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference(Constantes.REF_USUARIOS);
