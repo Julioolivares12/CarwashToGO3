@@ -77,7 +77,7 @@ public class ListarPaquetesFragment extends Fragment {
                             if (isTwoPane){
                                 Bundle arguments = new Bundle();
                                 arguments.putString(Constantes.UID_PAQUETE,paquete.getUid());
-                                editarPaqueteFragment editarPaqueteFragment = new editarPaqueteFragment();
+                                EditarPaqueteFragment editarPaqueteFragment = new EditarPaqueteFragment();
                                 editarPaqueteFragment.setArguments(arguments);
 
                                /* queda pendiente crear el fragmente de diseño de datlle para poner este pedaso de codigo
@@ -88,7 +88,7 @@ public class ListarPaquetesFragment extends Fragment {
                             }else {
                                 Bundle argumets = new Bundle();
                                 argumets.putString(Constantes.UID_PAQUETE,paquete.getUid());
-                                editarPaqueteFragment editarPaqueteFragment = new editarPaqueteFragment();
+                                EditarPaqueteFragment editarPaqueteFragment = new EditarPaqueteFragment();
                                 editarPaqueteFragment.setArguments(argumets);
                                 View view = getView();
                                 assert view != null;
