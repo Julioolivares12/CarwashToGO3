@@ -38,6 +38,7 @@ public class CatalogoDeProductosFragment extends Fragment {
     private List<Paquete> paqueteList = new ArrayList<>();
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance ();
     DatabaseReference paqueref;
+    public  boolean isTwoPane=false;
     public CatalogoDeProductosFragment() {
         // Required empty public constructor
     }
@@ -55,6 +56,9 @@ public class CatalogoDeProductosFragment extends Fragment {
         super.onViewCreated ( view, savedInstanceState );
         paqueref =firebaseDatabase.getReference (Constantes.REF_PAQUETES);
 
+        if (view.findViewById ( R.id.detalle_producto ) != null){
+            isTwoPane = true;
+        }
         final RecyclerView recyclerView = view.findViewById ( R.id.rb_catalogo_productos);
         paqueref.addValueEventListener(new ValueEventListener() {
 
@@ -72,13 +76,21 @@ public class CatalogoDeProductosFragment extends Fragment {
                     recyclerView.setAdapter ( new PaquetesRecyclerViewAdapater ( paqueteList, new PaquetesOnItemClickListener () {
                         @Override
                         public void OnClick(Paquete paquete) {
+                            if (isTwoPane){
+                                Bundle datos = new Bundle();
+                                datos.putString (Constantes.UID_PAQUETE,paquete.getUid());
+                                DetalleProductoFragment detalleProductoFragment = new DetalleProductoFragment();
+                                detalleProductoFragment.setArguments (datos);
+                                getChildFragmentManager ().beginTransaction ().replace(R.id.detalle_producto,detalleProductoFragment)
+                                        .commit ();
+                            }
                             View view1 = getView ();
 
                             assert view1 != null;
                             Bundle datos = new Bundle ();
                             datos.putString (Constantes.UID_PAQUETE,paquete.getUid ());
                             Log.i ( "UID PAQUETE",paquete.getUid () );
-                            Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment,datos);
+                           // Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment,datos);
                         }
                     } ) );
                 }

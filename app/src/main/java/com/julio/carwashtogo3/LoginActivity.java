@@ -122,10 +122,18 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String rol = dataSnapshot.getValue(String.class);
-                Intent irPrincipal = new Intent(getApplicationContext(),MainActivity.class);
-                irPrincipal.putExtra(Constantes.ROL_USER,rol);
-                startActivity(irPrincipal);
-                finish();
+                if (rol.equals ( "administrador" )){
+                    Intent irPrincipal = new Intent(getApplicationContext(),MainActivity.class);
+                    irPrincipal.putExtra(Constantes.ROL_USER,rol);
+                    startActivity(irPrincipal);
+                    finish();
+                }else if (rol.equals ( "cliente" )){
+                    Intent irPrincipal = new Intent(getApplicationContext(),MenuClienteActivity.class);
+                    irPrincipal.putExtra(Constantes.ROL_USER,rol);
+                    startActivity(irPrincipal);
+                    finish();
+                }
+
             }
 
             @Override

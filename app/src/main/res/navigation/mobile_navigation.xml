@@ -71,7 +71,7 @@
 
     <fragment
         android:id="@+id/editarPaqueteFragment"
-        android:name="com.julio.carwashtogo3.ui.administrador.paquetes.editarPaqueteFragment"
+        android:name="com.julio.carwashtogo3.ui.administrador.paquetes.EditarPaqueteFragment"
         android:label="detalle paquete"
         tools:layout="@layout/fragment_editar_paquete" />
 
@@ -96,7 +96,8 @@
         android:name="com.julio.carwashtogo3.ui.PerfilFragment"
         android:label="perfil"
         tools:layout="@layout/fragment_perfil" />
-    <!--cliente-->
+  <!--
+    cliente
     <fragment
         android:id="@+id/navigation_catalogo_productos"
         android:name="com.julio.carwashtogo3.ui.cliente.catalogo.CatalogoDeProductosFragment"
@@ -144,5 +145,7 @@
             android:id="@+id/action_listarPaqueteFragment_to_editarPaqueteFragment"
             app:destination="@id/editarPaqueteFragment" />
     </fragment>
-    <!--fin cliente-->
+    cliente
+
+  -->
 </navigation>

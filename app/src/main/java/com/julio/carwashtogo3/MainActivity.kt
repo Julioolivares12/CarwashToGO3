@@ -29,6 +29,7 @@ import com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones
 import java.security.AccessController.getContext
 
 class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractionListener {
+    lateinit var mAuth : FirebaseAuth
     override fun onFragmentInteraction(uri: Uri?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -48,6 +49,8 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
+
+        mAuth = FirebaseAuth.getInstance()
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -58,10 +61,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 R.id.navigation_agregar_promociones,
                 R.id.navigation_lista_encargados,
                 R.id.navigation_nuevo_encargado,
-                R.id.navigation_perfil,
-                R.id.navigation_cuponera,
-                R.id.navigation_catalogo_productos,
-                R.id.navigation_nuevo_paquete
+                R.id.navigation_perfil
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -72,10 +72,10 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
             val rol : String?  =datos.getString(Constantes.ROL_USER)
 
             if (rol != null){
-                hideOptionMenu(rol)
-                setNavigationDestination(rol)
-                suscribirUsuarioPaquetes(rol)
-                suscribirUsuarioAPromociones(rol)
+                //hideOptionMenu(rol)
+                //setNavigationDestination(rol)
+                //suscribirUsuarioPaquetes(rol)
+                //suscribirUsuarioAPromociones(rol)
             }
 
 
@@ -154,18 +154,16 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 return true
             }
             R.id.action_cerrar_sesion -> {
-                val firebaseAuth: FirebaseAuth
-                firebaseAuth = FirebaseAuth.getInstance()
-                firebaseAuth.signOut()
+
+                mAuth.signOut()
                 val intent = Intent(this@MainActivity, LoginActivity::class.java)
                 startActivity(intent)
                 this@MainActivity.finish()
                 return true
             }
             R.id.action_salir -> {
-                val firebaseAuth: FirebaseAuth
-                firebaseAuth = FirebaseAuth.getInstance()
-                firebaseAuth.signOut()
+
+                mAuth.signOut()
                 finishAffinity()
                 return true
             }
@@ -179,6 +177,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
     }
 
     //oculta las opciones de menu segun el tipo de usuario
+    /*
     private fun hideOptionMenu(tipoUser: String) {
         val navView : NavigationView = findViewById(R.id.nav_view)
         val menu = navView.menu
@@ -217,8 +216,11 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         }
     }
 
+     */
+
     //establece el fragment de inicio para cada tipo de usuario
     //tipo: String, navigationView: NavigationView, navController: NavController
+    /*
     private fun setNavigationDestination(tipo: String) {
 
 
@@ -250,5 +252,5 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         }
 
 
-    }
+    }*/
 }

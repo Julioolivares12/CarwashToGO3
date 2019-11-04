@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_naviagion_cliente"
+    app:startDestination="@id/navigation_catalogo_productos">
+
+    <fragment
+        android:id="@+id/navigation_catalogo_productos"
+        android:name="com.julio.carwashtogo3.ui.cliente.catalogo.CatalogoDeProductosFragment"
+        android:label="Catalogo de productos"
+        tools:layout="@layout/fragment_catalogo_de_productos" >
+        <action
+            android:id="@+id/action_catalogoDeProductosFragment_to_detalleProductoFragment2"
+            app:destination="@id/detalleProductoFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleProductoFragment2"
+        android:name="com.julio.carwashtogo3.ui.cliente.catalogo.DetalleProductoFragment"
+        android:label="fragment_detalle_producto"
+        tools:layout="@layout/fragment_detalle_producto" />
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.julio.carwashtogo3.ui.PerfilFragment"
+        android:label="perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>

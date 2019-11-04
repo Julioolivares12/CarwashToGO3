@@ -92,7 +92,7 @@ public class ListarPaquetesFragment extends Fragment {
                                 editarPaqueteFragment.setArguments(argumets);
                                 View view = getView();
                                 assert view != null;
-                                Navigation.findNavController(view).navigate(R.id.action_listarPaqueteFragment_to_editarPaqueteFragment,argumets);
+                                //Navigation.findNavController(view).navigate(R.id.action_listarPaqueteFragment_to_editarPaqueteFragment,argumets);
                             }
 
 
