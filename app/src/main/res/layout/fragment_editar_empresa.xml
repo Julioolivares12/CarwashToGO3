@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".ui.administrador.empresa.EditarEmpresaFragment">
 
 
@@ -26,6 +27,7 @@
 
         <TextView
             android:id="@+id/textView7"
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -35,6 +37,7 @@
 
         <TextView
             android:id="@+id/textView8"
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -44,6 +47,7 @@
 
         <TextView
             android:id="@+id/textView9"
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -53,6 +57,7 @@
 
         <TextView
             android:id="@+id/textView10"
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -62,6 +67,7 @@
 
         <TextView
             android:id="@+id/txtDescripcionPaqueteDetalle"
+            style="@style/textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -76,6 +82,7 @@
 
         <TextView
             android:id="@+id/txtPrecioPaqueteDetalle"
+            style="@style/textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -89,6 +96,7 @@
 
         <TextView
             android:id="@+id/txtTituloPaqueteDetalle"
+            style="@style/textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -102,6 +110,7 @@
 
         <TextView
             android:id="@+id/txtTelefonoEmpresaDetalle"
+            style="@style/textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -115,6 +124,7 @@
 
         <TextView
             android:id="@+id/textView11"
+            style="@style/textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -124,6 +134,7 @@
 
         <TextView
             android:id="@+id/txtNivelEmpresaDetalle"
+            style="@style/textview2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

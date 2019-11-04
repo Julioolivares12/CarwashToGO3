@@ -22,7 +22,7 @@
 
         <ImageView
             android:src="@drawable/logo"
-            android:layout_gravity="left"
+
             android:layout_width="75dp"
             android:layout_height="50dp" />
 
@@ -42,6 +42,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
@@ -51,13 +52,13 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:background="@drawable/boton_redondo"
             android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/loginButton"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@+id/edt_passwordR"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/edt_passwordR"
-            android:background="@drawable/boton_redondo"
             app:layout_constraintTop_toBottomOf="@+id/edt_passwordR" />
 
         <EditText
@@ -109,11 +110,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/boton_redondo"
             android:backgroundTint="#3b5998"
             android:drawableLeft="@drawable/social_facebook"
             android:text="@string/facebook"
             android:textColor="@android:color/white"
-            android:background="@drawable/boton_redondo"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -123,28 +124,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/boton_redondo"
+            android:backgroundTint="#00acee"
             android:drawableLeft="@drawable/social_twitter_icon"
             android:text="@string/twitter"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@+id/btnLoginWithFacebook"
             app:layout_constraintStart_toStartOf="@+id/btnLoginWithFacebook"
-            app:layout_constraintTop_toBottomOf="@+id/btnLoginWithFacebook"
-            android:backgroundTint="#00acee"
-            android:background="@drawable/boton_redondo"
-            android:textColor="@android:color/white"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginWithFacebook" />
 
         <Button
             android:id="@+id/btnLoginWithGoogle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/boton_redondo"
+            android:backgroundTint="#db4a39"
             android:drawableLeft="@drawable/social_google_plus_icon"
             android:text="@string/google"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@+id/btnLoginWithTwitter"
             app:layout_constraintStart_toStartOf="@+id/btnLoginWithTwitter"
-            app:layout_constraintTop_toBottomOf="@+id/btnLoginWithTwitter"
-            android:backgroundTint="#db4a39"
-            android:background="@drawable/boton_redondo"
-            android:textColor="@android:color/white"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginWithTwitter" />
 
         <View
             android:id="@+id/divider"

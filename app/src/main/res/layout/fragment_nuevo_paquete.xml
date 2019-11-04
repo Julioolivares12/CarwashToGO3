@@ -37,7 +37,7 @@
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="88dp"
                 android:layout_marginRight="88dp"
-                android:backgroundTint="@color/colorNegroBotones"
+                android:backgroundTint="@color/colorBoton1"
                 android:text="guardar"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
