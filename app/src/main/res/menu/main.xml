@@ -7,16 +7,24 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/action_cerrar_sesion"
+        android:orderInCategory="101"
+        android:title="Cerrar Sesion"
+        app:showAsAction="never|withText" />
+
     <item
         android:id="@+id/action_acerca"
-        android:orderInCategory="101"
-        android:title="Acerca De"
+        android:orderInCategory="102"
+        android:title="Acerca de"
         android:icon="@drawable/icon_info"
         app:showAsAction="never|withText" />
 
     <item
         android:id="@+id/action_salir"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="Salir"
         app:showAsAction="never|withText" />
 </menu>

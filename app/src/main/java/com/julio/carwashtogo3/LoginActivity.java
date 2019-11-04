@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
         tb_inicio = findViewById(R.id.tb_inicio);
         setSupportActionBar(tb_inicio);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);//desactivar titulo toolbar
 
         tb_inicio.setTitle("");
 

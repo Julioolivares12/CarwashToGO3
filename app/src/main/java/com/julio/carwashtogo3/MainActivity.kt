@@ -1,5 +1,6 @@
 package com.julio.carwashtogo3
 
+import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
@@ -20,10 +21,12 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.julio.carwashtogo3.common.Constantes
 import com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones
+import java.security.AccessController.getContext
 
 class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractionListener {
     override fun onFragmentInteraction(uri: Uri?) {
@@ -31,6 +34,8 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
     }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,7 +111,7 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
         return true
     }
 
-    //opciones menu action bar
+    //programacion opciones menu action bar
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -146,10 +151,21 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 // Display the alert dialog on app interface
                 dialog.show()
 
-                Toast.makeText(this, "Aceca De", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_cerrar_sesion -> {
+                val firebaseAuth: FirebaseAuth
+                firebaseAuth = FirebaseAuth.getInstance()
+                firebaseAuth.signOut()
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+                this@MainActivity.finish()
                 return true
             }
             R.id.action_salir -> {
+                val firebaseAuth: FirebaseAuth
+                firebaseAuth = FirebaseAuth.getInstance()
+                firebaseAuth.signOut()
                 finishAffinity()
                 return true
             }
