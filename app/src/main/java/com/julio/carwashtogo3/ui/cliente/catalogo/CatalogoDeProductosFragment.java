@@ -90,7 +90,7 @@ public class CatalogoDeProductosFragment extends Fragment {
                             Bundle datos = new Bundle ();
                             datos.putString (Constantes.UID_PAQUETE,paquete.getUid ());
                             Log.i ( "UID PAQUETE",paquete.getUid () );
-                           // Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment,datos);
+                           Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment2,datos);
                         }
                     } ) );
                 }
