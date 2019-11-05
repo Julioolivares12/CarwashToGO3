@@ -81,16 +81,20 @@ public class CatalogoDeProductosFragment extends Fragment {
                                 datos.putString (Constantes.UID_PAQUETE,paquete.getUid());
                                 DetalleProductoFragment detalleProductoFragment = new DetalleProductoFragment();
                                 detalleProductoFragment.setArguments (datos);
-                                getChildFragmentManager ().beginTransaction ().replace(R.id.detalle_producto,detalleProductoFragment)
+                                getChildFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.detalle_producto,detalleProductoFragment)
                                         .commit ();
-                            }
-                            View view1 = getView ();
+                            }else{
+                                View view1 = getView ();
 
-                            assert view1 != null;
-                            Bundle datos = new Bundle ();
-                            datos.putString (Constantes.UID_PAQUETE,paquete.getUid ());
-                            Log.i ( "UID PAQUETE",paquete.getUid () );
-                           Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment2,datos);
+                                assert view1 != null;
+                                Bundle datos = new Bundle ();
+                                datos.putString (Constantes.UID_PAQUETE,paquete.getUid ());
+                                Log.i ( "UID PAQUETE",paquete.getUid () );
+                                Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment2,datos);
+                            }
+
                         }
                     } ) );
                 }

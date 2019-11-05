@@ -1,5 +1,7 @@
 package com.julio.carwashtogo3.model;
 
+import java.util.List;
+
 public class User {
     private String nombre;
     private String codEmpleado;
@@ -12,6 +14,28 @@ public class User {
 
     private String rol;
     private String url_imagen;
+
+    private List<Token> tokens;
+
+    public List<CompraPaquete> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<CompraPaquete> compras) {
+        this.compras = compras;
+    }
+
+    private List<CompraPaquete> compras;
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<Token> tokens) {
+        this.tokens = tokens;
+    }
+
+
 
     public String getUrl_imagen() {
         return url_imagen;

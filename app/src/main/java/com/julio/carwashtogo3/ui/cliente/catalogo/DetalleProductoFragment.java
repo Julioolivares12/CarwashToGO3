@@ -93,8 +93,8 @@ public class DetalleProductoFragment extends Fragment {
         reference = firebaseDatabase.getReference(Constantes.REF_COMPRAS);
         paqueteRef= firebaseDatabase.getReference ( Constantes.REF_PAQUETES );
         refUsuarios = firebaseDatabase.getReference ( Constantes.REF_USUARIOS );
-        mAuth = FirebaseAuth.getInstance ();
-        if (getArguments ()!= null){
+        mAuth = FirebaseAuth.getInstance();
+        if (getArguments()!= null){
            final String UID_PRODUCTO = getArguments ().getString (Constantes.UID_PAQUETE);
             paqueteRef.child (UID_PRODUCTO).addValueEventListener ( new ValueEventListener () {
                 @Override
@@ -107,10 +107,9 @@ public class DetalleProductoFragment extends Fragment {
                             tv_titulo_compra.setText ( paquete.getTitulo () );
                             tv_descripcion_compra.setText ( paquete.getDescripcion () );
                             if (paquete.getUrlImagen () != null && !TextUtils.isEmpty(paquete.getUrlImagen())){
-                                View view1 = getView ();
-                                assert view1!= null;
+
                                 setUrlImagen ( paquete.getUrlImagen () );
-                                Glide.with (view1).load(paquete.getUrlImagen()).centerCrop().into (iv_compra );
+                                Glide.with(view).load(paquete.getUrlImagen()).centerCrop().into (iv_compra);
                             }
 
                         }

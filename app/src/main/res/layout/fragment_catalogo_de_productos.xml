@@ -12,6 +12,7 @@
      android:id="@+id/rb_catalogo_productos"
      tools:listitem="@layout/item_paquetes"
      app:layoutManager="android.support.v7.widget.GridLayoutManager"
+     app:spanCount="2"
      />
 
 </FrameLayout>

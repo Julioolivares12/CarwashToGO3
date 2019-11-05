@@ -12,7 +12,7 @@
      android:orientation="horizontal"
      android:baselineAligned="false">
   <android.support.v7.widget.RecyclerView
-      android:layout_width="400dp"
+      android:layout_width="300dp"
       android:layout_height="match_parent"
       android:id="@+id/rb_catalogo_productos"
       tools:listitem="@layout/item_paquetes"
