@@ -18,6 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.julio.carwashtogo3.common.Constantes;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class InicioActivity extends AppCompatActivity {
 
@@ -30,7 +33,8 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-
+        AppCenter.start(getApplication(), "fea5db51-1112-4759-81e7-b37e56ef8879",
+                Analytics.class, Crashes.class);
 
 
         //muestro actividad 4 segundos
