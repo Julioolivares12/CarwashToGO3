@@ -33,7 +33,7 @@ class MenuClienteActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_catalogo_productos,R.id.navigation_perfil)
+            setOf(R.id.navigation_catalogo_productos,R.id.navigation_compras,R.id.navigation_perfil)
         )
         setupActionBarWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -53,8 +53,7 @@ class MenuClienteActivity : AppCompatActivity() {
             R.id.action_acerca -> {
                 val builder = AlertDialog.Builder(this@MenuClienteActivity)
                 builder.setTitle(getString(R.string.acercaDe))
-                builder.setMessage(
-                    Html.fromHtml(
+                builder.setMessage(Html.fromHtml(
                         "Julio Roberto Olivares Perez<br>"+
                                 "Juan Carlos Garcia Santos<br>"+
                                 "Marvin Josue Cortez Rodas<br>"+

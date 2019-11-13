@@ -24,4 +24,18 @@
         android:name="com.julio.carwashtogo3.ui.PerfilFragment"
         android:label="perfil"
         tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/navigation_compras"
+        android:name="com.julio.carwashtogo3.ui.cliente.compras.MisComprasFragment"
+        android:label="fragment_mis_compras"
+        tools:layout="@layout/fragment_mis_compras" >
+        <action
+            android:id="@+id/action_navigation_compras_to_detalleMisComprasFragment"
+            app:destination="@id/detalleMisComprasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleMisComprasFragment"
+        android:name="com.julio.carwashtogo3.ui.cliente.compras.DetalleMisComprasFragment"
+        android:label="fragment_detalle_mis_compras"
+        tools:layout="@layout/fragment_detalle_mis_compras" />
 </navigation>
