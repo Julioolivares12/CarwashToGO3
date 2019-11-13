@@ -185,6 +185,8 @@ public class DetalleProductoFragment extends Fragment {
             }
         } );
 
+        refUsuarios.child(mAuth.getUid()).child ("compras").push().setValue(compraPaquete);
+
     }
     private void showDateDialog() {
         DatePickerFragment datePickerFragment = DatePickerFragment.newInstance ( new DatePickerDialog.OnDateSetListener () {
