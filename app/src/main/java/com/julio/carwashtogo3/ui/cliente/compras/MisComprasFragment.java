@@ -77,13 +77,22 @@ public class MisComprasFragment extends Fragment {
                         @Override
                         public void onClick(CompraPaquete compraPaquete) {
                             if (isTwoPane){
+
                                 Bundle datos = new Bundle();
                                 datos.putString("","");
+
+                                DetalleMisComprasFragment misComprasFragment = new DetalleMisComprasFragment();
+                                misComprasFragment.setArguments (datos);
+
+                                getChildFragmentManager().beginTransaction()
+                                        .replace(R.id.detalle_compra,
+                                                misComprasFragment)
+                                        .commit();
 
                             }else {
                                 Bundle datos = new Bundle();
                                 datos.putString ("","");
-                                Navigation.findNavController (view).navigate (R.id.action_navigation_compras_to_detalleMisComprasFragment);
+                                Navigation.findNavController (view).navigate (R.id.action_navigation_compras_to_detalleMisComprasFragment,datos);
                             }
                         }
                     } ));
