@@ -47,7 +47,7 @@ class MenuClienteActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item!!.itemId){
-            R.id.action_settings -> {
+            R.id.action_location -> {
                 return true
             }
             R.id.action_acerca -> {
