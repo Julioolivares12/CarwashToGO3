@@ -21,9 +21,12 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/colorNegroBotones"
+                android:textColor="@android:color/white"
                 android:text="subir imagen"
                 app:layout_constraintStart_toStartOf="@+id/edtDescripcionPromo"
                 android:background="@drawable/boton_redondo"
+
                 app:layout_constraintTop_toBottomOf="@+id/edtDescripcionPromo" />
 
             <Button
@@ -35,6 +38,8 @@
                 android:text="@string/crear_promocion"
                 app:layout_constraintEnd_toEndOf="@+id/edtDescripcionPromo"
                 app:layout_constraintStart_toEndOf="@+id/btnSubirImagenPromo"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/colorBoton1"
                 android:background="@drawable/boton_redondo"
                 app:layout_constraintTop_toTopOf="@+id/btnSubirImagenPromo" />
 

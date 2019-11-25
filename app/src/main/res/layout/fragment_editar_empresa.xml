@@ -68,6 +68,7 @@
         <TextView
             android:id="@+id/txtDescripcionPaqueteDetalle"
             style="@style/textview2"
+            android:textSize="19dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
