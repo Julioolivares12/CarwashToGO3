@@ -29,7 +29,7 @@ class MenuClienteActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment2)
 
         val toolbar: Toolbar = findViewById(R.id.toolbarcliente)
-        mAuth = FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance();
         setSupportActionBar(toolbar)
 
         val appBarConfiguration = AppBarConfiguration(
