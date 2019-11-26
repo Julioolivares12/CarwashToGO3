@@ -216,8 +216,6 @@ public class DetalleProductoFragment extends Fragment {
             }
         } );
 
-        refUsuarios.child(mAuth.getUid()).child ("compras").push().setValue(compraPaquete);
-
     }
 
     private void showDateDialog() {
