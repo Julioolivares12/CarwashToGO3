@@ -78,4 +78,8 @@ public class Empresa {
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
     }
+
+    public String toString(){
+        return this.getNombreEmpresa ();
+    }
 }

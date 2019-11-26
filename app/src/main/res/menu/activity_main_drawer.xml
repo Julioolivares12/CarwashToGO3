@@ -30,6 +30,10 @@
             android:id="@+id/navigation_listarPaquetes"
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
 
+        <item android:title="Pedidos de Hoy"
+            android:id="@+id/navigation_lista_pedidos"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"/>
+
 
 
       <!--  <item

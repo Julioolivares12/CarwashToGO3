@@ -16,6 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp">
 
+
+
             <Button
                 android:id="@+id/btnagregarfotopaquete"
                 android:layout_width="wrap_content"
@@ -28,7 +30,7 @@
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:background="@drawable/boton_redondo"
-                app:layout_constraintTop_toBottomOf="@+id/edt_titulo_paqquete" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_precio_paquete" />
 
             <Button
                 android:id="@+id/btnguardarpaquete"
@@ -42,7 +44,7 @@
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:background="@drawable/boton_redondo"
-                app:layout_constraintTop_toBottomOf="@+id/edt_titulo_paqquete" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_precio_paquete" />
 
             <EditText
                 android:id="@+id/edt_precio_paquete"
@@ -66,7 +68,7 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titulopantalla" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_titulo_paqquete" />
 
 
             <EditText
@@ -79,7 +81,18 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_precio_paquete" />
+                app:layout_constraintTop_toBottomOf="@+id/imgPaquete" />
+
+            <ImageView
+                android:id="@+id/imgPaquete"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titulopantalla"
+                app:srcCompat="@drawable/noimage"
+                tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/titulopantalla"

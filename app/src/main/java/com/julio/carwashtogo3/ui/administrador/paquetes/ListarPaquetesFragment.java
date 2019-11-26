@@ -36,100 +36,82 @@ import java.util.List;
 
 public class ListarPaquetesFragment extends Fragment {
 
-    private boolean isTwoPane=false;
+    private boolean isTwoPane = false;
     private final List<Paquete> paquetesList = new ArrayList<> ();
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance ();
     private DatabaseReference paquetesRef;
 
-    public  ListarPaquetesFragment(){
+    public ListarPaquetesFragment() {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
         View view = inflater.inflate ( R.layout.fragment_listar_paquetes, container, false );
-        paquetesRef = firebaseDatabase.getReference(Constantes.REF_PAQUETES);
+        paquetesRef = firebaseDatabase.getReference ( Constantes.REF_PAQUETES );
         //if (view.findViewById ( R.id.detalle_empresa )!=null){
-          //  isTwoPane = true;
+        //  isTwoPane = true;
         //}
 
-         final RecyclerView recyclerView =view.findViewById(R.id.rb_paquetes_list);
-         //getListaPaquete ();
+        final RecyclerView recyclerView = view.findViewById ( R.id.rb_paquetes_list );
+        //getListaPaquete ();
 
- paquetesRef.addValueEventListener ( new ValueEventListener () {
+        paquetesRef.addValueEventListener ( new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                if (dataSnapshot.exists ()){
+                if (dataSnapshot.exists ()) {
                     paquetesList.clear ();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren ()){
-                        Paquete paquete = snapshot.getValue(Paquete.class);
-                        paquetesList.add(paquete);
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren ()) {
+                        Paquete paquete = snapshot.getValue ( Paquete.class );
+                        paquetesList.add ( paquete );
                     }
 
-                    recyclerView.setAdapter (new PaquetesRecyclerViewAdapater ( paquetesList, new PaquetesOnItemClickListener () {
+                    recyclerView.setAdapter ( new PaquetesRecyclerViewAdapater ( paquetesList, new PaquetesOnItemClickListener () {
                         @Override
                         public void OnClick(Paquete paquete) {
-                            //aqui la logica  para ver el detalle
-
-                            if (isTwoPane){
-                                Bundle arguments = new Bundle();
-                                arguments.putString(Constantes.UID_PAQUETE,paquete.getUid());
-                                EditarPaqueteFragment editarPaqueteFragment = new EditarPaqueteFragment();
-                                editarPaqueteFragment.setArguments(arguments);
-
-                               /* queda pendiente crear el fragmente de diseño de datlle para poner este pedaso de codigo
-                               getChildFragmentManager()
-                                        .beginTransaction()
-                                        .replace(R.id.detalle_paquete,editarPaqueteFragment)
-                                        .commit();*/
-                            }else {
-                                Bundle argumets = new Bundle();
-                                argumets.putString(Constantes.UID_PAQUETE,paquete.getUid());
-                                EditarPaqueteFragment editarPaqueteFragment = new EditarPaqueteFragment();
-                                editarPaqueteFragment.setArguments(argumets);
-                                View view = getView();
-                                assert view != null;
-                                //Navigation.findNavController(view).navigate(R.id.action_listarPaqueteFragment_to_editarPaqueteFragment,argumets);
-                            }
-
-
-
+                            Bundle argumets = new Bundle ();
+                            argumets.putString ( Constantes.UID_PAQUETE, paquete.getUid () );
+                            EditarPaqueteFragment editarPaqueteFragment = new EditarPaqueteFragment ();
+                            editarPaqueteFragment.setArguments ( argumets );
+                            View view = getView ();
+                            assert view != null;
+                            Navigation.findNavController(view).navigate(R.id.navigation_nuevo_paquete,argumets);
                         }
-                    } ));
+                    } ) );
                 }
             }
 
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText ( getContext (),"ocurrio un error"+databaseError.getMessage (),Toast.LENGTH_LONG ).show ();
+                Toast.makeText ( getContext (), "ocurrio un error" + databaseError.getMessage (), Toast.LENGTH_LONG ).show ();
 
             }
         } );
 
 
-        return  view;
+        return view;
     }
 
-    private  void getListaPaquete(){
+    private void getListaPaquete() {
         paquetesRef.addValueEventListener ( new ValueEventListener () {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-              if(dataSnapshot.exists ()){
-                  for(DataSnapshot snapshot : dataSnapshot.getChildren ()){
-                      Paquete paquete = snapshot.getValue (Paquete.class);
-                      paquetesList.add ( paquete );
-                  }
-                    Log.d ( "paquete list", paquetesList.get (0).getTitulo ());
-              }
+                if (dataSnapshot.exists ()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren ()) {
+                        Paquete paquete = snapshot.getValue ( Paquete.class );
+                        paquetesList.add ( paquete );
+                    }
+                    Log.d ( "paquete list", paquetesList.get ( 0 ).getTitulo () );
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText (getContext (), "ocurrio un erros"+databaseError.getMessage (), Toast.LENGTH_LONG).show ();
+                Toast.makeText ( getContext (), "ocurrio un erros" + databaseError.getMessage (), Toast.LENGTH_LONG ).show ();
             }
         } );
     }

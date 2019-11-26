@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.julio.carwashtogo3.R;
@@ -46,13 +47,15 @@ public class EmpresaRecyclerViewAdapter extends RecyclerView.Adapter<EmpresaRecy
     class EmpresaHolder extends RecyclerView.ViewHolder{
 
         private ImageView logoEmpresa;
+        private TextView tituloEmpresa;
         public EmpresaHolder(@NonNull View itemView) {
             super(itemView);
             logoEmpresa = itemView.findViewById(R.id.logoEmpresaList);
+            tituloEmpresa = itemView.findViewById ( R.id.tv_titulo_empresa );
         }
         private void bind(final Empresa empresa,final EmpresaOnItemClickListener onItemClickListener){
             Glide.with(itemView.getContext()).load(empresa.getUrlImagen()).centerCrop().into(logoEmpresa);
-
+            tituloEmpresa.setText ( empresa.getNombreEmpresa () );
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

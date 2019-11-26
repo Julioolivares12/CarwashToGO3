@@ -25,10 +25,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.julio.carwashtogo3.common.Constantes
+import com.julio.carwashtogo3.model.CompraPaquete
+import com.julio.carwashtogo3.ui.administrador.Pedidos.PedidoFragment
 import com.julio.carwashtogo3.ui.administrador.promocion.ListarPromociones
 import java.security.AccessController.getContext
 
-class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractionListener,PedidoFragment.OnListFragmentInteractionListener {
     lateinit var mAuth : FirebaseAuth
     override fun onFragmentInteraction(uri: Uri?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -37,15 +39,15 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
     private lateinit var appBarConfiguration: AppBarConfiguration
 
 
+    override fun onListFragmentInteraction(item: CompraPaquete?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -61,7 +63,8 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
                 R.id.navigation_agregar_promociones,
                 R.id.navigation_lista_encargados,
                 R.id.navigation_nuevo_encargado,
-                R.id.navigation_perfil
+                R.id.navigation_perfil,
+                R.id.navigation_lista_pedidos
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

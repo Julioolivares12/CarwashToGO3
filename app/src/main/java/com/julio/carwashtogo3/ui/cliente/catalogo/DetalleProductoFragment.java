@@ -3,6 +3,7 @@ package com.julio.carwashtogo3.ui.cliente.catalogo;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,8 +22,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.navigation.Navigation;
+
 import com.bumptech.glide.Glide;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +46,7 @@ import com.julio.carwashtogo3.common.DatePickerFragment;
 import com.julio.carwashtogo3.model.CompraPaquete;
 import com.julio.carwashtogo3.model.Paquete;
 import com.julio.carwashtogo3.model.User;
+import com.julio.carwashtogo3.ui.maps.GoogleMapActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,29 +56,30 @@ public class DetalleProductoFragment extends Fragment {
 
     //private final TextView tv_titulo_compra,tv_descripcion_compra;
     //private ImageView iv_compra;
-
+    private static final int REQUEST_GET_MAP_LOCATION = 5;
     private ImageButton btnAbrirCalendario;
-
-    private EditText fechaCompra;
+    private EditText fechaCompra,direccioncompra,edttelefono;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference reference;
     private DatabaseReference paqueteRef;
     private FirebaseAuth mAuth;
-
+    private Double latitude;
+    private Double longitude;
     private String urlImagen;
 
     private DatabaseReference refUsuarios;
     ProgressDialog progressDialog;
+
     public DetalleProductoFragment() {
         // Required empty public constructor
     }
 
 
-    public void setUrlImagen(String urlImagen){
+    public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
     }
 
-    public String getUrlImagen(){
+    public String getUrlImagen() {
         return urlImagen;
     }
 
@@ -75,7 +87,14 @@ public class DetalleProductoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalle_producto, container, false);
+        return inflater.inflate ( R.layout.fragment_detalle_producto, container, false );
+    }
+
+    public void AbrirMapa() {
+        Intent map = new Intent ( getContext (), GoogleMapActivity.class );
+        startActivityForResult ( map, REQUEST_GET_MAP_LOCATION );
+        //View vista = getView ();
+        //Navigation.findNavController ( vista ).navigate ( R.id.navigation_ubicacion,new Bundle() );
     }
 
     @Override
@@ -83,33 +102,42 @@ public class DetalleProductoFragment extends Fragment {
         super.onViewCreated ( view, savedInstanceState );
 
         Button btnComprar = view.findViewById ( R.id.btnComprar );
-        btnAbrirCalendario= view.findViewById ( R.id.btnAbrirCalendario );
-      final TextView tv_titulo_compra= view.findViewById ( R.id.tv_titulo_compra );
-      final TextView tv_descripcion_compra = view.findViewById ( R.id.tv_descripcion_compra );
-      final ImageView iv_compra =view.findViewById(R.id.img_compra);
+        Button btnubicacion = view.findViewById ( R.id.btnseleccionarUbicacion );
+        //btnAbrirCalendario= view.findViewById ( R.id.btnAbrirCalendario );
+        final TextView tv_titulo_compra = view.findViewById ( R.id.tv_titulo_compra );
+        final TextView tv_descripcion_compra = view.findViewById ( R.id.tv_descripcion_compra );
+        final ImageView iv_compra = view.findViewById ( R.id.img_compra );
+        edttelefono = view.findViewById ( R.id.edtnumerotelefono );
+        direccioncompra = view.findViewById ( R.id.edtdireccioncompra );
         fechaCompra = view.findViewById ( R.id.fechaCompra );
-
+        fechaCompra.setOnClickListener ( new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                showDateDialog ();
+            }
+        } );
         firebaseDatabase = FirebaseDatabase.getInstance ();
-        reference = firebaseDatabase.getReference(Constantes.REF_COMPRAS);
-        paqueteRef= firebaseDatabase.getReference ( Constantes.REF_PAQUETES );
+        reference = firebaseDatabase.getReference ( Constantes.REF_COMPRAS );
+        paqueteRef = firebaseDatabase.getReference ( Constantes.REF_PAQUETES );
         refUsuarios = firebaseDatabase.getReference ( Constantes.REF_USUARIOS );
-        mAuth = FirebaseAuth.getInstance();
-        if (getArguments()!= null){
-           final String UID_PRODUCTO = getArguments ().getString (Constantes.UID_PAQUETE);
-            paqueteRef.child (UID_PRODUCTO).addValueEventListener ( new ValueEventListener () {
+        mAuth = FirebaseAuth.getInstance ();
+        if (getArguments () != null) {
+            final String UID_PRODUCTO = getArguments ().getString ( Constantes.UID_PAQUETE );
+            paqueteRef.child ( UID_PRODUCTO ).addValueEventListener ( new ValueEventListener () {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists ()){
-                       final Paquete paquete = dataSnapshot.getValue (Paquete.class);
+                    if (dataSnapshot.exists ()) {
+                        final Paquete paquete = dataSnapshot.getValue ( Paquete.class );
 
-                       Log.i ( "Paquete",paquete.getTitulo () );
-                        if (paquete!= null){
+                        Log.i ( "Paquete", paquete.getTitulo () );
+                        if (paquete != null) {
                             tv_titulo_compra.setText ( paquete.getTitulo () );
                             tv_descripcion_compra.setText ( paquete.getDescripcion () );
-                            if (paquete.getUrlImagen () != null && !TextUtils.isEmpty(paquete.getUrlImagen())){
-
+                            if (paquete.getUrlImagen () != null && !TextUtils.isEmpty ( paquete.getUrlImagen () )) {
+                                View view1 = getView ();
+                                assert view1 != null;
                                 setUrlImagen ( paquete.getUrlImagen () );
-                                Glide.with(view).load(paquete.getUrlImagen()).centerCrop().into (iv_compra);
+                                Glide.with ( view1 ).load ( paquete.getUrlImagen () ).centerCrop ().into ( iv_compra );
                             }
 
                         }
@@ -118,52 +146,55 @@ public class DetalleProductoFragment extends Fragment {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Log.i ( "Detalle Compra",databaseError.getMessage());
+                    Log.i ( "Detalle Compra", databaseError.getMessage () );
                 }
             } );
 
         }
 
-
-
-        btnAbrirCalendario.setOnClickListener ( new View.OnClickListener () {
+        btnubicacion.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                showDateDialog();
+                AbrirMapa ();
             }
         } );
+
+
         btnComprar.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-
-
-                progressDialog = new ProgressDialog (getContext ());
+                progressDialog = new ProgressDialog ( getContext () );
                 progressDialog.setMessage ( "PROCESANDO COMPRA" );
                 progressDialog.setIndeterminate ( true );
                 progressDialog.setCancelable ( false );
                 progressDialog.show ();
-               final String key= reference.push ().getKey ();
-               final String title = tv_titulo_compra.getText ().toString ();
-               final String descripcion = tv_descripcion_compra.getText ().toString ();
-               final String fecha = fechaCompra.getText ().toString ();
+                final String key = reference.push ().getKey ();
+                final String title = tv_titulo_compra.getText ().toString ();
+                final String descripcion = tv_descripcion_compra.getText ().toString ();
+                final String fecha = fechaCompra.getText ().toString ();
 
                 FirebaseUser usuarioActual = mAuth.getCurrentUser ();
 
                 refUsuarios.child ( usuarioActual.getUid () ).addValueEventListener ( new ValueEventListener () {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists ()){
-                               User user = dataSnapshot.getValue (User.class);
-                               CompraPaquete compraPaquete = new CompraPaquete ();
-                               compraPaquete.setUID(key);
-                               compraPaquete.setTitulo(title);
-                               compraPaquete.setDescripcion(descripcion);
-                               compraPaquete.setFechaReserva(fecha);
-                               compraPaquete.setImagen (getUrlImagen ());
-                               compraPaquete.setNombreCliente (user.getNombre ());
-                               comPrar(compraPaquete);
-                               progressDialog.dismiss ();
-                            }
+                        if (dataSnapshot.exists ()) {
+                            User user = dataSnapshot.getValue ( User.class );
+                            CompraPaquete compraPaquete = new CompraPaquete ();
+                            compraPaquete.setUID ( key );
+                            compraPaquete.setTitulo ( title );
+                            compraPaquete.setIdpaquete(getArguments ().getString ( Constantes.UID_PAQUETE ));
+                            compraPaquete.setDescripcion ( descripcion );
+                            compraPaquete.setDireecion ( direccioncompra.getText ().toString () );
+                            compraPaquete.setLatitude ( latitude );
+                            compraPaquete.setLongitude ( longitude );
+                            compraPaquete.setTelefono ( edttelefono.getText ().toString () );
+                            compraPaquete.setFechaReserva ( fecha );
+                            compraPaquete.setImagen ( getUrlImagen () );
+                            compraPaquete.setNombreCliente ( user.getNombre () );
+                            comPrar ( compraPaquete );
+                            progressDialog.dismiss ();
+                        }
                     }
 
                     @Override
@@ -175,26 +206,36 @@ public class DetalleProductoFragment extends Fragment {
         } );
     }
 
-    private void comPrar(CompraPaquete compraPaquete){
-        reference.child (compraPaquete.getUID ()).setValue ( compraPaquete ).addOnSuccessListener ( new OnSuccessListener<Void> () {
+    private void comPrar(CompraPaquete compraPaquete) {
+        reference.child ( compraPaquete.getUID () ).setValue ( compraPaquete ).addOnSuccessListener ( new OnSuccessListener<Void> () {
             @Override
             public void onSuccess(Void aVoid) {
                 View view = getView ();
                 assert view != null;
-                Snackbar.make ( view,"Compra realizada con exito",Snackbar.LENGTH_LONG ).show ();
+                Snackbar.make ( view, "Compra realizada con exito", Snackbar.LENGTH_LONG ).show ();
             }
         } );
 
     }
+
     private void showDateDialog() {
         DatePickerFragment datePickerFragment = DatePickerFragment.newInstance ( new DatePickerDialog.OnDateSetListener () {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                final  String selectedDate = dayOfMonth+"/"+(month+1)+"/"+year;
-                fechaCompra.setText (selectedDate);
+                final String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                fechaCompra.setText ( selectedDate );
             }
         } );
 
-        datePickerFragment.show ( getActivity ().getSupportFragmentManager (),"datePicker" );
+        datePickerFragment.show ( getActivity ().getSupportFragmentManager (), "datePicker" );
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String direccion = data.getExtras ().getString ( "DIRECCION" );
+        direccioncompra.setText ( direccion );
+        longitude = data.getExtras ().getDouble ( "LONG" );
+        latitude = data.getExtras ().getDouble ( "LAT" );
+        int i = 0;
     }
 }

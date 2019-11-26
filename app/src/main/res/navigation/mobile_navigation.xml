@@ -55,9 +55,9 @@
 
     <fragment
         android:id="@+id/navigation_lista_encargados"
-        android:name="com.julio.carwashtogo3.ui.administrador.encargado.ListarEncargadoFragment"
+        android:name="com.julio.carwashtogo3.ui.administrador.encargado.ListaEncargadoFragment"
         android:label="lista encargado"
-        tools:layout="@layout/fragment_listar_encargado" />
+        tools:layout="@layout/fragment_encargado_list" />
     <fragment
         android:id="@+id/navigation_agregar_promociones"
         android:name="com.julio.carwashtogo3.ui.administrador.promocion.CrearPromocionFragment"
@@ -90,12 +90,28 @@
         android:name="com.julio.carwashtogo3.ui.administrador.empresa.NuevaEmpresaFragment"
         android:label="nueva empresa"
         tools:layout="@layout/fragment_nueva_empresa" />
+    <fragment
+        android:id="@+id/navigation_lista_pedidos"
+        android:name="com.julio.carwashtogo3.ui.administrador.Pedidos.PedidoFragment"
+        android:label="Pedidos de hoy"
+        tools:layout="@layout/fragment_pedido_list" />
+
+
     <!--fin administrador-->
     <fragment
         android:id="@+id/navigation_perfil"
         android:name="com.julio.carwashtogo3.ui.PerfilFragment"
         android:label="perfil"
         tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/navigation_listarPaquetes"
+        android:name="com.julio.carwashtogo3.ui.administrador.paquetes.ListarPaquetesFragment"
+        android:label="lista de paquetes"
+        tools:layout="@layout/fragment_listar_paquetes" >
+        <action
+            android:id="@+id/action_listarPaqueteFragment_to_editarPaqueteFragment"
+            app:destination="@id/editarPaqueteFragment" />
+    </fragment>
   <!--
     cliente
     <fragment

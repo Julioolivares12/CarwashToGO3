@@ -3,6 +3,7 @@ package com.julio.carwashtogo3.common;
 public class Constantes {
     public static String ROL_USER = "rol_user";
     public static String REF_EMPRESA="empresas";
+    public static String REF_ENCARGADO="encargados";
     public static String REF_USUARIOS="usuarios";
     public static String REF_PAQUETES="paquetes";
     public static String REF_PROMOCIONES="promociones";

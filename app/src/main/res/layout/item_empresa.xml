@@ -8,28 +8,30 @@
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/logoEmpresaList"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/imagen_para_empresas"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.709"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
-    </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_titulo_empresa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="titulo"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

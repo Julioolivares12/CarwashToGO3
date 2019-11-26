@@ -28,12 +28,12 @@ class MenuClienteActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment2)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbarcliente)
         mAuth = FirebaseAuth.getInstance()
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_catalogo_productos,R.id.navigation_perfil)
+            setOf(R.id.navigation_catalogo_productos,R.id.navigation_perfil,R.id.detalleProductoFragment2)
         )
         setupActionBarWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -52,7 +52,7 @@ class MenuClienteActivity : AppCompatActivity() {
             }
             R.id.action_acerca -> {
                 val builder = AlertDialog.Builder(this@MenuClienteActivity)
-                builder.setTitle(getString(R.string.acercaDe))
+                builder.setTitle("Acercade")
                 builder.setMessage(
                     Html.fromHtml(
                         "Julio Roberto Olivares Perez<br>"+

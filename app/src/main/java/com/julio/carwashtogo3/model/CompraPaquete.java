@@ -12,8 +12,13 @@ public class CompraPaquete {
     private String UID;
     private String titulo;
     private double precio;
+    private String idpaquete;
     private String nombreCliente;
     private String descripcion;
+    private Double latitude;
+    private Double longitude;
+    private String telefono;
+    private String direecion;
 
     public String getFechaReserva() {
         return fechaReserva;
@@ -65,5 +70,45 @@ public class CompraPaquete {
 
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireecion() {
+        return direecion;
+    }
+
+    public void setDireecion(String direecion) {
+        this.direecion = direecion;
+    }
+
+    public String getIdpaquete() {
+        return idpaquete;
+    }
+
+    public void setIdpaquete(String idpaquete) {
+        this.idpaquete = idpaquete;
     }
 }

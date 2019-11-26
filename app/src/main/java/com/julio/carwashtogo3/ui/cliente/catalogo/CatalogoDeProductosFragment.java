@@ -4,6 +4,7 @@ package com.julio.carwashtogo3.ui.cliente.catalogo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -55,7 +56,9 @@ public class CatalogoDeProductosFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated ( view, savedInstanceState );
         paqueref =firebaseDatabase.getReference (Constantes.REF_PAQUETES);
-
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) getActivity().findViewById(R.id.nav_view_cliente);
+        bottomNavigationView.getMenu ().clear ();
+        bottomNavigationView.inflateMenu ( R.menu.bottom_nav_menu );
         if (view.findViewById ( R.id.detalle_producto ) != null){
             isTwoPane = true;
         }
@@ -81,20 +84,15 @@ public class CatalogoDeProductosFragment extends Fragment {
                                 datos.putString (Constantes.UID_PAQUETE,paquete.getUid());
                                 DetalleProductoFragment detalleProductoFragment = new DetalleProductoFragment();
                                 detalleProductoFragment.setArguments (datos);
-                                getChildFragmentManager()
-                                        .beginTransaction()
-                                        .replace(R.id.detalle_producto,detalleProductoFragment)
+                                getChildFragmentManager ().beginTransaction ().replace(R.id.detalle_producto,detalleProductoFragment)
                                         .commit ();
-                            }else{
-                                View view1 = getView ();
-
-                                assert view1 != null;
-                                Bundle datos = new Bundle ();
-                                datos.putString (Constantes.UID_PAQUETE,paquete.getUid ());
-                                Log.i ( "UID PAQUETE",paquete.getUid () );
-                                Navigation.findNavController(view1).navigate (R.id.action_catalogoDeProductosFragment_to_detalleProductoFragment2,datos);
                             }
 
+                            View view1 = getView ();
+                            assert view1 != null;
+                            Bundle datos = new Bundle ();
+                            datos.putString (Constantes.UID_PAQUETE,paquete.getUid ());
+                            Navigation.findNavController(view1).navigate (R.id.detalleProductoFragment2,datos);
                         }
                     } ) );
                 }
