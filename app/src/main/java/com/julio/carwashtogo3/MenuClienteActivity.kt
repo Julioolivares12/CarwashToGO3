@@ -28,12 +28,12 @@ class MenuClienteActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment2)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbarcliente)
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance()
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_catalogo_productos,R.id.navigation_perfil,R.id.detalleProductoFragment2)
+            setOf(R.id.navigation_catalogo_productos,R.id.navigation_perfil,R.id.detalleProductoFragment2,R.id.navigation_compras)
         )
         setupActionBarWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
