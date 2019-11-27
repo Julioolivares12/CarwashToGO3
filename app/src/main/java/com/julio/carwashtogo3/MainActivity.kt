@@ -119,11 +119,11 @@ class MainActivity : AppCompatActivity() ,ListarPromociones.OnFragmentInteractio
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
 
-            R.id.action_location -> {
-                val intent = Intent(this@MainActivity, MapsActivity::class.java)
-                startActivity(intent)
-                return true
-            }
+//            R.id.action_location -> {
+//                val intent = Intent(this@MainActivity, MapsActivity::class.java)
+//                startActivity(intent)
+//                return true
+//            }
             R.id.action_acerca-> {
 
                 // Initialize a new instance of
