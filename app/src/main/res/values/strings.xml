@@ -72,4 +72,16 @@
     <string name="comprar">comprar</string>
     <string name="selecciona_una_fecha">selecciona una fecha</string>
     <string name="acercaDe">Acerca de carwash TO GO</string>
+    <string name="configuracion">configuracion</string>
+    <string name="acerca_de">Acerca De</string>
+    <string name="salir">Salir</string>
+
+    <string-array name="idiomas">
+        <item>Español</item>
+        <item>Ingles</item>
+    </string-array>
+    <string-array name="idomas_valor">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

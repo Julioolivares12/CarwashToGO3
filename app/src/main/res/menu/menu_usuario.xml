@@ -3,10 +3,10 @@
 
     <item
         android:id="@+id/aCERCA"
-        android:title="Acerca De"
+        android:title="@string/acerca_de"
         android:visible="true" />
     <item
         android:id="@+id/salir"
-        android:title="Salir"
+        android:title="@string/salir"
         android:visible="true" />
 </menu>

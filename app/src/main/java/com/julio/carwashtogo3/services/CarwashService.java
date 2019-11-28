@@ -1,6 +1,10 @@
 package com.julio.carwashtogo3.services;
 
+import android.app.NotificationManager;
+import android.content.Context;
+import android.media.RingtoneManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.julio.carwashtogo3.R;
 import com.julio.carwashtogo3.common.Constantes;
 import com.julio.carwashtogo3.model.Token;
 
@@ -19,8 +24,12 @@ public class CarwashService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived ( remoteMessage );
         String notificacion = remoteMessage.getNotification ().getBody();
-        if (notificacion != null && !notificacion.isEmpty ()){
+
+        if (notificacion != null && !notificacion.isEmpty()){
             Log.i (TAG,notificacion);
+            String title = remoteMessage.getNotification().getTitle();
+            String cuerpo = remoteMessage.getNotification().getBody();
+            mostrarNotificacion (title,cuerpo);
         }
 
     }
@@ -51,6 +60,14 @@ public class CarwashService extends FirebaseMessagingService {
         }
 
 
+    }
+
+    private void mostrarNotificacion(String titulo , String mensaje){
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder (this).setSmallIcon(R.drawable.ic_launcher_foreground).setContentTitle (titulo).setContentText (mensaje);
+        NotificationManager notificationManager = (NotificationManager) getSystemService ( Context.NOTIFICATION_SERVICE );
+        mBuilder.setSound ( RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        assert notificationManager != null;
+        notificationManager.notify (1,mBuilder.build ());
     }
 
 }
