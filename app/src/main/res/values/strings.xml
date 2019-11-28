@@ -75,6 +75,13 @@
     <string name="configuracion">configuracion</string>
     <string name="acerca_de">Acerca De</string>
     <string name="salir">Salir</string>
+    <string name="promocion_paquetes">promocion paquetes</string>
+    <string name="notificaciones">notificaciones</string>
+    <string name="descripcion_preferencia_paquete">activa la suscripcion para las notificaciones de creacion de paquetes</string>
+    <string name="promocion_preferencia">promocion</string>
+    <string name="descripcion_preferencia_promocion">activa la suscripcion para las notificaciones de creacion de promociones</string>
+    <string name="prefencia_idioma_title">idioma de applicacion</string>
+    <string name="descripcion_idiomas_preferencia">selecciona el idioma de la applicacion</string>
 
     <string-array name="idiomas">
         <item>Español</item>

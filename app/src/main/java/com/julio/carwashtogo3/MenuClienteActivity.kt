@@ -1,6 +1,8 @@
 package com.julio.carwashtogo3
 
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +22,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 import com.julio.carwashtogo3.ui.cliente.configuracion.ConfiguracionActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MenuClienteActivity : AppCompatActivity() {
 
@@ -41,6 +45,7 @@ class MenuClienteActivity : AppCompatActivity() {
         )
 
         configuracionMensajesFireBase()
+        comprobarIdiomaApp()
         setupActionBarWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -112,6 +117,37 @@ class MenuClienteActivity : AppCompatActivity() {
             }
         }else {
             FirebaseMessaging.getInstance().unsubscribeFromTopic("promocion").addOnCanceledListener { Log.d("Suscripcion cancelada","suscripcion cancelaada con exito") }
+        }
+    }
+
+    fun comprobarIdiomaApp(){
+        val preference = PreferenceManager.getDefaultSharedPreferences(this)
+
+        val idiomaApp = preference.getInt("idioma",1)
+        when(idiomaApp){
+            1 -> {
+                val localizacion = Locale("es","ES")
+                Locale.setDefault(localizacion)
+                val listLocale = ArrayList<Locale>()
+                listLocale.add(localizacion)
+                val config = Configuration()
+                config.locale = localizacion
+                baseContext.resources.updateConfiguration(config,baseContext.resources.displayMetrics)
+
+                val recargar= Intent(this,MenuClienteActivity::class.java)
+                startActivity(recargar)
+                finish()
+            }
+            2->{
+                val locale = Locale(Locale.ENGLISH.language)
+                Locale.setDefault(locale)
+                val config = Configuration()
+                config.locale= locale
+                baseContext.resources.updateConfiguration(config,baseContext.resources.displayMetrics)
+                val recargar= Intent(this,MenuClienteActivity::class.java)
+                startActivity(recargar)
+                finish()
+        }
         }
     }
 }

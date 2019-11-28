@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="notificaciones">
-        <SwitchPreference android:title="promocion paquetes"
+    <PreferenceCategory android:title="@string/notificaciones">
+        <SwitchPreference android:title="@string/promocion_paquetes"
             android:id="@+id/paquete"
             android:key="paquete"
             android:defaultValue="false"
-            android:summary="activa la suscripcion para las notificaciones de creacion de paquetes"
+            android:summary="@string/descripcion_preferencia_paquete"
             />
-        <SwitchPreference android:title="promocion"
+        <SwitchPreference android:title="@string/promocion_preferencia"
             android:id="@+id/promocion"
             android:key="promocion"
             android:defaultValue="false"
-            android:summary="activa la suscripcion para las notificaciones de creacion de promociones"
+            android:summary="@string/descripcion_preferencia_promocion"
             />
-        <ListPreference android:title="idioma de applicacion"
-            android:summary="selecciona el idioma de la applicacion"
+        <ListPreference android:title="@string/prefencia_idioma_title"
+            android:summary="@string/descripcion_idiomas_preferencia"
             android:entries="@array/idiomas"
             android:entryValues="@array/idomas_valor"
             android:key="idioma">
